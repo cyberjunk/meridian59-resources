@@ -1,0 +1,68 @@
+fragment_program Compositor/BlackAndWhite_ps cg
+{
+	source compositors.cg
+	entry_point BlackAndWhite_ps
+	profiles ps_2_0
+}
+
+fragment_program Compositor/Blend_ps cg
+{
+	source compositors.cg
+	entry_point Blend_ps
+	profiles ps_2_0
+	
+	default_params
+    {
+		param_named blendcolor float4 1.0 1.0 1.0 0.0
+    }
+}
+
+fragment_program Compositor/Black_ps cg
+{
+	source compositors.cg
+	entry_point Blend_ps
+	profiles ps_2_0
+	
+	default_params
+    {
+		param_named blendcolor float4 1.0 1.0 1.0 0.0
+    }
+}
+
+fragment_program Compositor/Pain_ps cg
+{
+	source compositors.cg
+	entry_point Blend_ps
+	profiles ps_2_0
+	
+	default_params
+    {
+		param_named blendcolor float4 1.0 1.0 1.0 0.0
+    }
+}
+
+fragment_program Compositor/Whiteout_ps cg
+{
+	source compositors.cg
+	entry_point Blend_ps
+	profiles ps_2_0
+	
+	default_params
+    {
+		param_named blendcolor float4 1.0 1.0 1.0 0.0
+    }
+}
+
+fragment_program Compositor/Blur_ps cg
+{
+	source compositors.cg
+	profiles ps_2_0
+	entry_point Blur_ps
+}
+
+fragment_program Compositor/Invert_ps cg
+{
+	source compositors.cg
+	entry_point Invert_ps
+	profiles ps_2_0
+}

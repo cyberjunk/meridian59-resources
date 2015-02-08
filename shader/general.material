@@ -1,0 +1,189 @@
+material transparent
+{
+	technique
+    {
+        pass
+        {
+			ambient 0 0 0 0
+			diffuse 0 0 0 0
+			specular 0 0 0 0
+			scene_blend alpha_blend
+			depth_write off
+		}
+	}
+}
+
+material base_material
+{
+    technique
+    {
+        pass
+        {
+			// 1. stage: ambientlight
+			alpha_rejection greater_equal 64
+			alpha_to_coverage on
+            illumination_stage ambient
+ 
+            vertex_program_ref ambient_vs
+            {
+            }
+ 
+            fragment_program_ref ambient_ps
+            {
+				param_named colormodifier float3 1 1 1
+				param_named opaque float 1.0
+            }
+ 
+			// set this in code with texture
+			// see: ApplyTextureAliases()
+            texture_unit diffuseMap
+            {   
+            }
+        }
+ 
+        pass
+        {
+			// 2. stage: per light
+			alpha_rejection greater_equal 64
+			alpha_to_coverage on
+            illumination_stage per_light
+			
+			iteration once_per_light point         
+			max_lights 36			
+			scene_blend add
+            
+            vertex_program_ref diffuse_vs
+            {
+            }
+ 
+            fragment_program_ref diffuse_ps
+            {
+				param_named colormodifier float3 1 1 1
+				param_named opaque float 1.0
+            }
+
+            // set this in code with texture
+			// see: ApplyTextureAliases()
+			texture_unit diffuseMap
+            {                
+            }
+        }
+    }
+}
+
+material base_material_black : base_material
+{	
+	technique
+    {
+        pass
+        {
+			fragment_program_ref ambient_ps
+			{
+				param_named colormodifier float3 0 0 0
+			}
+		}
+		
+		pass
+		{
+			fragment_program_ref diffuse_ps
+			{
+				param_named colormodifier float3 0 0 0
+			}
+		}
+	}
+}
+
+material base_material_target : base_material
+{	
+	technique
+    {
+        pass
+        {
+			fragment_program_ref ambient_ps
+			{
+				param_named colormodifier float3 4 1.2 1.2
+			}
+		}
+		
+		pass
+		{
+			fragment_program_ref diffuse_ps
+			{
+				param_named colormodifier float3 4 1.2 1.2
+			}
+		}
+	}
+}
+
+material base_material_mouseover : base_material
+{	
+	technique
+    {
+        pass
+        {
+			fragment_program_ref ambient_ps
+			{
+				param_named colormodifier float3 1.2 4.0 1.2
+			}
+		}
+		
+		pass
+		{
+			fragment_program_ref diffuse_ps
+			{
+				param_named colormodifier float3 1.2 4.0 1.2
+			}
+		}
+	}
+}
+
+material base_material_invisible
+{	
+	technique
+    {
+        pass
+        {
+			scene_blend alpha_blend
+			depth_write off
+			
+			vertex_program_ref invisible_vs
+			{
+				param_named_auto worldViewProjMatrix worldviewproj_matrix
+				param_named_auto eyePosition camera_position_object_space
+				param_named_auto timeVal time 0.05
+				param_named scroll float 1  
+				param_named scale float 1 
+				param_named noise float 1 
+				// scroll and noisePos will need updating per frame
+			}
+			
+			fragment_program_ref invisible_ps
+			{
+				param_named tintColour float4 0.005 0.005 0.005 1
+				param_named noiseScale float 0.05 
+			}
+			
+			// Base texture for transparency check
+			texture_unit diffuseMap
+            {                
+            }
+			
+			// Noise
+			texture_unit
+			{
+				// Perlin noise volume
+				texture invisible_noise.dds
+				// min / mag filtering, no mip
+				filtering linear linear none
+			}
+			
+			// Refraction
+			texture_unit
+			{
+				// Will be filled in at runtime
+				texture refraction
+				tex_address_mode clamp
+			}
+		}		
+	}
+}

@@ -1,0 +1,143 @@
+material Compositor/BlackAndWhite
+{
+	technique
+	{
+		pass
+		{
+			depth_check off
+
+			fragment_program_ref Compositor/BlackAndWhite_ps
+			{
+			}
+
+			texture_unit
+			{
+			}
+		}
+	}
+}
+
+material Compositor/Blend
+{
+	technique
+	{
+		pass
+		{
+			depth_check off
+
+			fragment_program_ref Compositor/Blend_ps
+			{
+				param_named blendcolor float4 1.0 1.0 1.0 0.0
+			}
+
+			texture_unit
+			{
+			}
+		}
+	}
+}
+
+material Compositor/Black
+{
+	technique
+	{
+		pass
+		{
+			depth_check off
+
+			fragment_program_ref Compositor/Blend_ps
+			{
+				param_named blendcolor float4 1.0 1.0 1.0 0.0
+			}
+
+			texture_unit
+			{
+			}
+		}
+	}
+}
+
+material Compositor/Pain
+{
+	technique
+	{
+		pass
+		{
+			depth_check off
+
+			fragment_program_ref Compositor/Blend_ps
+			{
+				param_named blendcolor float4 1.0 1.0 1.0 0.0
+			}
+
+			texture_unit
+			{
+			}
+		}
+	}
+}
+
+material Compositor/Whiteout
+{
+	technique
+	{
+		pass
+		{
+			depth_check off
+
+			fragment_program_ref Compositor/Blend_ps
+			{
+				param_named blendcolor float4 1.0 1.0 1.0 0.0
+			}
+
+			texture_unit
+			{
+			}
+		}
+	}
+}
+
+material Compositor/Blur
+{
+	technique
+	{
+		pass
+		{
+			cull_hardware none
+			cull_software none
+			depth_check off
+
+			fragment_program_ref Compositor/Blur_ps
+			{
+	            param_named sampleDist float 1.0
+	            param_named sampleStrength float 2.2
+			}
+			
+			texture_unit
+			{
+                tex_coord_set 0
+				tex_address_mode clamp
+				filtering trilinear
+			}
+		}
+	}
+}
+
+material Compositor/Invert
+{
+	technique
+	{
+		pass
+		{
+			depth_check off
+
+			fragment_program_ref Compositor/Invert_ps
+			{
+			}
+
+			texture_unit
+			{
+			}
+		}
+	}
+}
