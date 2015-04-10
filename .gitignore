@@ -1,2 +1,2 @@
-/legacy/objects/*.bgf
-/legacy/roomtextures/*.bgf
+/bgfobjects/*.bgf
+/bgftextures/*.bgf
