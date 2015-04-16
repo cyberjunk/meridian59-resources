@@ -49,7 +49,7 @@ material base_material
             illumination_stage per_light
 			
 			iteration once_per_light point         
-			max_lights 36			
+			max_lights 48			
 			scene_blend add
             
             vertex_program_ref diffuse_vs
