@@ -31,28 +31,6 @@ float4 ambient_ps(
 		1.0 * opaque);
 }
 
-float4 ambient256_ps(
-	in float2 uv : TEXCOORD0,
-	uniform float3 ambient,
-	uniform float3 colormodifier,
-	uniform float opaque,
-	uniform sampler2D palette : register(s0),
-	uniform sampler2D texture : register(s1)): COLOR0
-{
-	if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0)
-	{
-		return float4(0,0,0,0);
-	}
-	else
-	{
-		return tex2D(palette, float2(tex2D(texture, uv).a, 0)) * float4(
-			ambient[0] * colormodifier[0],
-			ambient[1] * colormodifier[1],
-			ambient[2] * colormodifier[2],		
-			1.0 * opaque);
-	}
-}
-
 VOut diffuse_vs(
 	float4 p : POSITION,
 	float2 uv : TEXCOORD0,
@@ -95,42 +73,6 @@ float4 diffuse_ps(
 		diffuseContrib[1] * colormodifier[1],
 		diffuseContrib[2] * colormodifier[2],
 		diffuseTex.a * opaque);
-}
-
-float4 diffuse256_ps(
-	float2 uv : TEXCOORD0,
-	float4 wp : TEXCOORD1,
-	uniform float3 lightDif0,
-	uniform float4 lightPos0,
-	uniform float4 lightAtt0,
-	uniform float3 colormodifier,
-	uniform float opaque,
-	uniform sampler2D palette : TEXUNIT0,
-	uniform sampler2D texture : TEXUNIT1): COLOR0
-{
-	if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0)
-	{
-		return float4(0,0,0,0);
-	}
-	else
-	{
-		// distance, attenuation
-		half lightDist = length(lightPos0.xyz - wp.xyz) / lightAtt0.r;
-		half la = 1.0 - (lightDist * lightDist);
-
-		// the argb value from diffuse texture
-		float4 diffuseTex = tex2D(palette, float2(tex2D(texture, uv).a, 0));
-		
-		// the outputcolor RGB, no alpha
-		float3 diffuseContrib = (lightDif0 * diffuseTex.rgb * la);
-
-		// return outputcolor RGB with alpha from texture
-		return float4(
-			diffuseContrib[0] * colormodifier[0],
-			diffuseContrib[1] * colormodifier[1],
-			diffuseContrib[2] * colormodifier[2],
-			diffuseTex.a * opaque);
-	}
 }
 
 void invisible_vs(

@@ -27,20 +27,6 @@ fragment_program ambient_ps cg
     }
 }
 
-fragment_program ambient256_ps cg
-{
-    source general.cg
-    profiles ps_2_0
-    entry_point ambient256_ps
- 
-    default_params
-    {
-        param_named_auto ambient ambient_light_colour
-		param_named colormodifier float3 1 1 1
-		param_named opaque float 1.0
-    }
-}
-
 // DIFFUSE 
 
 vertex_program diffuse_vs cg
@@ -62,22 +48,6 @@ fragment_program diffuse_ps cg
     source general.cg
     profiles ps_2_0
     entry_point diffuse_ps
- 
-    default_params
-    {
-        param_named_auto lightDif0 light_diffuse_colour 0
-		param_named_auto lightPos0 light_position 0
-        param_named_auto lightAtt0 light_attenuation 0
-		param_named colormodifier float3 1 1 1
-		param_named opaque float 1.0		
-    }
-}
-
-fragment_program diffuse256_ps cg
-{
-    source general.cg
-    profiles ps_2_0
-    entry_point diffuse256_ps
  
     default_params
     {
