@@ -1899,12 +1899,12 @@
 					<!-- Display -->
 					<Window type="TaharezLook/Label" name="Options.TabEngine.DisplayDescription" >
 						<Property name="Text" value="Display" />
-						<Property name="Area" value="{{0,20},{0,20},{0,120},{0,40}}" />
+						<Property name="Area" value="{{0,20},{0,20},{0,110},{0,40}}" />
 						<Property name="HorzFormatting" value="LeftAligned" />
 						<Property name="NormalTextColour" value="FF242424" />								
 					</Window>
 					<Window type="TaharezLook/Combobox" name="Options.TabEngine.Display" >
-						<Property name="Area" value="{{0,120},{0,20},{0,360},{0,120}}" />
+						<Property name="Area" value="{{0,115},{0,20},{0,370},{0,120}}" />
 						<Property name="ClippedByParent" value="False" />
 						<Property name="ReadOnly" value="True" />
 					</Window>	
@@ -1912,12 +1912,12 @@
 					<!-- Resolution -->
 					<Window type="TaharezLook/Label" name="Options.TabEngine.ResolutionDescription" >
 						<Property name="Text" value="Resolution" />
-						<Property name="Area" value="{{0,20},{0,45},{0,120},{0,65}}" />
+						<Property name="Area" value="{{0,20},{0,45},{0,110},{0,65}}" />
 						<Property name="HorzFormatting" value="LeftAligned" />
 						<Property name="NormalTextColour" value="FF242424" />								
 					</Window>
 					<Window type="TaharezLook/Combobox" name="Options.TabEngine.Resolution" >
-						<Property name="Area" value="{{0,120},{0,45},{0,360},{0,145}}" />
+						<Property name="Area" value="{{0,115},{0,45},{0,370},{0,145}}" />
 						<Property name="ClippedByParent" value="False" />
 						<Property name="ReadOnly" value="True" />
 					</Window>
@@ -1945,12 +1945,12 @@
 					<!-- FSAA -->
 					<Window type="TaharezLook/Label" name="Options.TabEngine.FSAADescription" >
 						<Property name="Text" value="FSAA" />
-						<Property name="Area" value="{{0,20},{0,105},{0,120},{0,125}}" />
+						<Property name="Area" value="{{0,20},{0,105},{0,110},{0,125}}" />
 						<Property name="HorzFormatting" value="LeftAligned" />
 						<Property name="NormalTextColour" value="FF242424" />								
 					</Window>
 					<Window type="TaharezLook/Combobox" name="Options.TabEngine.FSAA" >
-						<Property name="Area" value="{{0,120},{0,105},{0,225},{0,220}}" />
+						<Property name="Area" value="{{0,115},{0,105},{0,245},{0,220}}" />
 						<Property name="ClippedByParent" value="False" />
 						<Property name="ReadOnly" value="True" />
 					</Window>
@@ -1958,12 +1958,12 @@
 					<!-- Filtering -->
 					<Window type="TaharezLook/Label" name="Options.TabEngine.FilteringDescription" >
 						<Property name="Text" value="Filtering" />
-						<Property name="Area" value="{{0,20},{0,130},{0,120},{0,150}}" />
+						<Property name="Area" value="{{0,20},{0,130},{0,110},{0,150}}" />
 						<Property name="HorzFormatting" value="LeftAligned" />
 						<Property name="NormalTextColour" value="FF242424" />								
 					</Window>
 					<Window type="TaharezLook/Combobox" name="Options.TabEngine.Filtering" >
-						<Property name="Area" value="{{0,120},{0,130},{0,225},{0,245}}" />
+						<Property name="Area" value="{{0,115},{0,130},{0,245},{0,245}}" />
 						<Property name="ClippedByParent" value="False" />
 						<Property name="ReadOnly" value="True" />
 					</Window>
@@ -1971,12 +1971,12 @@
 					<!-- ImageBuilder -->
 					<Window type="TaharezLook/Label" name="Options.TabEngine.ImageBuilderDescription" >
 						<Property name="Text" value="ImageBuilder" />
-						<Property name="Area" value="{{0,20},{0,155},{0,120},{0,175}}" />
+						<Property name="Area" value="{{0,20},{0,155},{0,110},{0,175}}" />
 						<Property name="HorzFormatting" value="LeftAligned" />
 						<Property name="NormalTextColour" value="FF242424" />								
 					</Window>
 					<Window type="TaharezLook/Combobox" name="Options.TabEngine.ImageBuilder" >
-						<Property name="Area" value="{{0,120},{0,155},{0,225},{0,255}}" />
+						<Property name="Area" value="{{0,115},{0,155},{0,245},{0,255}}" />
 						<Property name="ClippedByParent" value="False" />
 						<Property name="ReadOnly" value="True" />
 					</Window>					
@@ -1984,12 +1984,12 @@
 					<!-- ScalingQuality -->
 					<Window type="TaharezLook/Label" name="Options.TabEngine.ScalingQualityDescription" >
 						<Property name="Text" value="ScalingQuality" />
-						<Property name="Area" value="{{0,20},{0,180},{0,120},{0,200}}" />
+						<Property name="Area" value="{{0,20},{0,180},{0,110},{0,200}}" />
 						<Property name="HorzFormatting" value="LeftAligned" />
 						<Property name="NormalTextColour" value="FF242424" />								
 					</Window>
 					<Window type="TaharezLook/Combobox" name="Options.TabEngine.ScalingQuality" >
-						<Property name="Area" value="{{0,120},{0,180},{0,225},{0,280}}" />
+						<Property name="Area" value="{{0,115},{0,180},{0,245},{0,280}}" />
 						<Property name="ClippedByParent" value="False" />
 						<Property name="ReadOnly" value="True" />
 					</Window>
@@ -1997,12 +1997,12 @@
 					<!-- TextureQuality -->
 					<Window type="TaharezLook/Label" name="Options.TabEngine.TextureQualityDescription" >
 						<Property name="Text" value="TextureQuality" />
-						<Property name="Area" value="{{0,20},{0,205},{0,120},{0,225}}" />
+						<Property name="Area" value="{{0,20},{0,205},{0,110},{0,225}}" />
 						<Property name="HorzFormatting" value="LeftAligned" />
 						<Property name="NormalTextColour" value="FF242424" />								
 					</Window>
 					<Window type="TaharezLook/Combobox" name="Options.TabEngine.TextureQuality" >
-						<Property name="Area" value="{{0,120},{0,205},{0,225},{0,305}}" />
+						<Property name="Area" value="{{0,115},{0,205},{0,245},{0,305}}" />
 						<Property name="ClippedByParent" value="False" />
 						<Property name="ReadOnly" value="True" />
 					</Window>
@@ -2012,31 +2012,31 @@
 					<!-- DisableMipmaps -->
 					<Window type="TaharezLook/Checkbox" name="Options.TabEngine.DisableMipmaps" >
 						<Property name="Text" value="Mipmaps" />
-						<Property name="Area" value="{{0,240},{0,105},{0,365},{0,125}}" />	
+						<Property name="Area" value="{{0,250},{0,105},{0,365},{0,125}}" />	
 					</Window>
 					
 					<!-- DisableNewRoomTextures -->
 					<Window type="TaharezLook/Checkbox" name="Options.TabEngine.DisableNewRoomTextures" >
 						<Property name="Text" value="New Textures" />
-						<Property name="Area" value="{{0,240},{0,130},{0,365},{0,150}}" />	
+						<Property name="Area" value="{{0,250},{0,130},{0,365},{0,150}}" />	
 					</Window>
 					
 					<!-- Disable3DModels -->
 					<Window type="TaharezLook/Checkbox" name="Options.TabEngine.Disable3DModels" >
 						<Property name="Text" value="New 3D Models" />
-						<Property name="Area" value="{{0,240},{0,155},{0,365},{0,175}}" />	
+						<Property name="Area" value="{{0,250},{0,155},{0,365},{0,175}}" />	
 					</Window>
 					
 					<!-- DisableNewSky -->
 					<Window type="TaharezLook/Checkbox" name="Options.TabEngine.DisableNewSky" >
 						<Property name="Text" value="New Sky" />
-						<Property name="Area" value="{{0,240},{0,180},{0,365},{0,200}}" />	
+						<Property name="Area" value="{{0,250},{0,180},{0,365},{0,200}}" />	
 					</Window>
 					
 					<!-- DisableWeather -->
 					<Window type="TaharezLook/Checkbox" name="Options.TabEngine.DisableWeather" >
 						<Property name="Text" value="Weather Effects" />
-						<Property name="Area" value="{{0,240},{0,205},{0,365},{0,225}}" />	
+						<Property name="Area" value="{{0,250},{0,205},{0,365},{0,225}}" />	
 					</Window>
 					
 					<!-- -->
@@ -2044,23 +2044,23 @@
 					<!-- Particles -->
 					<Window type="TaharezLook/Label" name="Options.TabEngine.ParticlesDescription" >
 						<Property name="Text" value="Particles" />
-						<Property name="Area" value="{{0,20},{0,240},{0,120},{0,260}}" />
+						<Property name="Area" value="{{0,20},{0,240},{0,110},{0,260}}" />
 						<Property name="HorzFormatting" value="LeftAligned" />
 						<Property name="NormalTextColour" value="FF242424" />								
 					</Window>
 					<Window type="TaharezLook/Slider" name="Options.TabEngine.Particles" >
-						<Property name="Area" value="{{0,120},{0,245},{0,360},{0,255}}" />								
+						<Property name="Area" value="{{0,115},{0,245},{0,360},{0,255}}" />								
 					</Window>
 					
 					<!-- Decoration -->
 					<Window type="TaharezLook/Label" name="Options.TabEngine.DecorationDescription" >
 						<Property name="Text" value="Decoration" />
-						<Property name="Area" value="{{0,20},{0,265},{0,120},{0,285}}" />
+						<Property name="Area" value="{{0,20},{0,265},{0,110},{0,285}}" />
 						<Property name="HorzFormatting" value="LeftAligned" />
 						<Property name="NormalTextColour" value="FF242424" />								
 					</Window>
 					<Window type="TaharezLook/Slider" name="Options.TabEngine.Decoration" >
-						<Property name="Area" value="{{0,120},{0,270},{0,360},{0,280}}" />								
+						<Property name="Area" value="{{0,115},{0,270},{0,360},{0,280}}" />								
 					</Window>
 					
 					<!-- -->
@@ -2068,23 +2068,23 @@
 					<!-- MusicVolume -->
 					<Window type="TaharezLook/Label" name="Options.TabEngine.MusicVolumeDescription" >
 						<Property name="Text" value="MusicVolume" />
-						<Property name="Area" value="{{0,20},{0,300},{0,120},{0,320}}" />
+						<Property name="Area" value="{{0,20},{0,300},{0,110},{0,320}}" />
 						<Property name="HorzFormatting" value="LeftAligned" />
 						<Property name="NormalTextColour" value="FF242424" />								
 					</Window>
 					<Window type="TaharezLook/Slider" name="Options.TabEngine.MusicVolume" >
-						<Property name="Area" value="{{0,120},{0,305},{0,360},{0,315}}" />								
+						<Property name="Area" value="{{0,115},{0,305},{0,360},{0,315}}" />								
 					</Window>
 					
 					<!-- SoundVolume -->
 					<Window type="TaharezLook/Label" name="Options.TabEngine.SoundVolumeDescription" >
 						<Property name="Text" value="SoundVolume" />
-						<Property name="Area" value="{{0,20},{0,325},{0,120},{0,345}}" />
+						<Property name="Area" value="{{0,20},{0,325},{0,110},{0,345}}" />
 						<Property name="HorzFormatting" value="LeftAligned" />
 						<Property name="NormalTextColour" value="FF242424" />								
 					</Window>
 					<Window type="TaharezLook/Slider" name="Options.TabEngine.SoundVolume" >
-						<Property name="Area" value="{{0,120},{0,330},{0,360},{0,340}}" />								
+						<Property name="Area" value="{{0,115},{0,330},{0,360},{0,340}}" />								
 					</Window>
 					
 					<!-- DisableLoopingSounds -->
