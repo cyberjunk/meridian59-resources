@@ -806,7 +806,7 @@
 				<Property name="Area" value="{{0,134},{0,10},{0,160},{0,36}}" />
 				<Property name="FrameEnabled" value="False" />
 				<Property name="BackgroundEnabled" value="False" />
-				<!--<Property name="Image" value="TaharezLook/MainButtonMap" />-->
+				<Property name="Image" value="TaharezLook/MainButtonOptions" />
 				<Property name="TooltipText" value="Options" />
 				<Property name="MouseCursorImage" value="TaharezLook/MouseTarget" />
 			</Window>
