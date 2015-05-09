@@ -287,6 +287,7 @@
 	<Image height="26" name="MainButtonMap"				width="26" xPos="167" yPos="330" />
 	<Image height="26" name="MainButtonSkills"			width="26" xPos="194" yPos="330" />
 	<Image height="26" name="MainButtonSpells"			width="26" xPos="221" yPos="330" />
+	<Image height="26" name="MainButtonOptions"			width="26" xPos="5" yPos="357" />
 	<Image height="10" name="RedCloseButton"			width="9" xPos="140" yPos="230" />
 	<Image height="10" name="RedCloseButtonHover"		width="9" xPos="150" yPos="230" />
 	<Image height="10" name="RedCloseButtonDisabled"	width="9" xPos="160" yPos="230" />
