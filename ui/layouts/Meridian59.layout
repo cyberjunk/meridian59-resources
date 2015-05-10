@@ -1841,25 +1841,27 @@
 		</Window>
 		
 		<!-- LoginWindow -->
-		<Window type="TaharezLook/FrameWindow" name="Login" >
+		<Window type="DefaultWindow" name="Login" >
 			<Property name="Text" value="Login" />
-			<Property name="TitlebarEnabled" value="True" />
-			<Property name="TitlebarFont" value="DejaVuSerif-10-Bold" />
 			<Property name="Area" value="{{0,0},{0,24},{1,0},{1,0}}" />
-			<Property name="MaxSize" value="{{1,0},{1,0}}" />
-			<Property name="Size" value="{{0,512},{0,512}}" />
-			<Property name="MinSize" value="{{0,512},{0,512}}" />
-			<Property name="Position" value="{{0.5,-256},{0.5,-256}}" />
-			<Property name="ClientAreaColour" value="F0000000" />
+			<Property name="Size" value="{{0,384},{0,240}}" />
+			<Property name="Position" value="{{0.5,-192},{0.5,-240}}" />
+
+			<Window type="TaharezLook/Label" name="Login.Title" >
+				<Property name="Text" value="LOGIN" />
+				<Property name="Area" value="{{0.5,-60},{0,0},{0.5,60},{0,30}}" />
+				<Property name="HorzFormatting" value="LeftAligned" />
+				<Property name="Font" value="EBGaramondSC-26" />				
+			</Window>
 			
 			<!-- Server -->
 			<Window type="TaharezLook/Label" name="Login.ServerDescription" >
 				<Property name="Text" value="Server" />
-				<Property name="Area" value="{{0,100},{0,90},{0,200},{0,110}}" />
+				<Property name="Area" value="{{0.5,-125},{0,50},{0.5,-35},{0,70}}" />
 				<Property name="HorzFormatting" value="LeftAligned" />								
 			</Window>
 			<Window type="TaharezLook/Combobox" name="Login.Server" >
-				<Property name="Area" value="{{0,205},{0,90},{0,360},{0,180}}" />
+				<Property name="Area" value="{{0.5,-35},{0,50},{0.5,125},{0,140}}" />
 				<Property name="ClippedByParent" value="False" />
 				<Property name="ReadOnly" value="True" />
 			</Window>
@@ -1867,22 +1869,22 @@
 			<!-- Username -->
 			<Window type="TaharezLook/Label" name="Login.UsernameDescription" >
 				<Property name="Text" value="Username" />
-				<Property name="Area" value="{{0,100},{0,125},{0,200},{0,150}}" />			
+				<Property name="Area" value="{{0.5,-125},{0,85},{0.5,-35},{0,110}}" />			
 				<Property name="HorzFormatting" value="LeftAligned" />					
 			</Window>
 			<Window type="TaharezLook/Editbox" name="Login.Username" >
-				<Property name="Area" value="{{0,205},{0,125},{0,360},{0,150}}" />
+				<Property name="Area" value="{{0.5,-35},{0,85},{0.5,125},{0,110}}" />
 				<Property name="TextParsingEnabled" value="False" />					
 			</Window>
 			
 			<!-- Password -->
 			<Window type="TaharezLook/Label" name="Login.PasswordDescription" >
 				<Property name="Text" value="Password" />
-				<Property name="Area" value="{{0,100},{0,155},{0,200},{0,180}}" />			
+				<Property name="Area" value="{{0.5,-125},{0,115},{0.5,-35},{0,140}}" />			
 				<Property name="HorzFormatting" value="LeftAligned" />					
 			</Window>
 			<Window type="TaharezLook/Editbox" name="Login.Password" >
-				<Property name="Area" value="{{0,205},{0,155},{0,360},{0,180}}" />
+				<Property name="Area" value="{{0.5,-35},{0,115},{0.5,125},{0,140}}" />
 				<Property name="TextParsingEnabled" value="False" />
 				<Property name="MaskText" value="True" />
 			</Window>
@@ -1890,14 +1892,14 @@
 			<!-- Connect -->
 			<Window type="TaharezLook/Button" name="Login.Connect" >
 				<Property name="Text" value="Connect" />
-				<Property name="Area" value="{{0,130},{0,190},{0,230},{0,215}}" />
+				<Property name="Area" value="{{0.5,-105},{0,170},{0.5,-5},{0,195}}" />
 				<Property name="MouseCursorImage" value="TaharezLook/MouseTarget" />
 			</Window>
 			
 			<!-- Options -->
 			<Window type="TaharezLook/Button" name="Login.Options" >
 				<Property name="Text" value="Options" />
-				<Property name="Area" value="{{0,240},{0,190},{0,340},{0,215}}" />
+				<Property name="Area" value="{{0.5,5},{0,170},{0.5,105},{0,195}}" />
 				<Property name="MouseCursorImage" value="TaharezLook/MouseTarget" />
 			</Window>
 		</Window>
