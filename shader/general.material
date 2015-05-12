@@ -187,3 +187,68 @@ material base_material_invisible
 		}		
 	}
 }
+
+vertex_program water_vs cg
+{
+	source general.cg
+	entry_point water_vs
+	profiles vs_2_0
+
+	default_params
+	{
+		param_named_auto worldViewProj_matrix worldviewproj_matrix
+		param_named_auto eyePosition camera_position_object_space
+		param_named scale float3 0.012 0.005 0.03
+		param_named_auto time_0_X time_0_x 100.0
+	}
+}
+
+fragment_program water_ps cg
+{
+	source general.cg
+	entry_point water_ps
+	profiles ps_2_0
+
+	default_params
+	{
+		param_named_auto ambient ambient_light_colour
+	}
+}
+
+material base_material_water
+{
+	technique
+	{
+		pass
+		{
+			illumination_stage ambient
+		
+			vertex_program_ref water_vs
+			{
+				param_named waveSpeed float2 0.0 0.1
+				param_named noiseSpeed float 0.1
+			}
+
+			fragment_program_ref water_ps
+			{
+				param_named fadeBias float 0.336
+				param_named fadeExp float 5.546
+			}
+
+			texture_unit
+			{
+				texture invisible_noise.dds
+				tex_coord_set 0
+				filtering linear linear none
+			}
+			
+			// set this in code with texture
+			// see: ApplyTextureAliases()
+            texture_unit diffuseMap
+            {   
+				tex_address_mode clamp
+				tex_coord_set 1
+            }
+		}
+	}
+}

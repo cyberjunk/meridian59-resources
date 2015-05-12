@@ -148,3 +148,66 @@ void invisible_ps(
 		col = diffuseTex;
 	}
 }
+
+
+
+
+struct VS_OUTPUT {
+   float4 Pos:    POSITION;
+   float3 uvw:    TEXCOORD0;
+   float3 normal: TEXCOORD1;
+   float3 vVec:   TEXCOORD2;
+};
+
+VS_OUTPUT water_vs(
+	float4 Pos: POSITION, 
+	float3 normal: NORMAL,
+	uniform float4x4 worldViewProj_matrix,
+	uniform float3 scale,
+	uniform float2 waveSpeed,
+	uniform float noiseSpeed,
+	uniform float time_0_X,
+	uniform float3 eyePosition)
+{
+   VS_OUTPUT Out;
+
+   Out.Pos    = mul(worldViewProj_matrix, Pos); 
+   Out.uvw    = Pos.xyz * scale;
+   Out.uvw.xz += waveSpeed * time_0_X;
+   Out.uvw.y  += Out.uvw.z + noiseSpeed * time_0_X;  
+   Out.vVec   = Pos.xyz - eyePosition;
+   Out.normal = normal;
+
+   return Out;
+}
+
+float4 water_ps(
+	float4 Pos: POSITION,
+	float3 uvw: TEXCOORD0, 
+	float3 normal: TEXCOORD1, 
+	float3 vVec: TEXCOORD2,
+	uniform float fadeBias,
+	uniform float fadeExp,
+	uniform sampler2D Noise,
+	uniform sampler2D skyBox,
+	uniform float3 ambient) : COLOR
+{
+   float3 noisy = tex2D(Noise, uvw.xy).xyz;
+   float3 bump = 2 * noisy - 1;
+   
+   bump.xz *= 0.15;
+   bump.y = 0.8 * abs(bump.y) + 0.2;
+   bump = normalize(normal + bump);
+
+   float3 normView = normalize(vVec);
+   float3 reflVec = reflect(normView, bump);
+   
+   reflVec.z = -reflVec.z;
+   
+   float4 refl = tex2D(skyBox, reflVec); 
+   float lrp = 1 - dot(-normView, bump);
+   
+   ambient = ambient + 0.01;
+   
+   return float4(ambient, 0) * lerp(refl, refl, saturate(fadeBias + pow(lrp, fadeExp)));
+}
