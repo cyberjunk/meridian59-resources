@@ -566,7 +566,7 @@
 			<Property name="Size" value="{{0,256},{0,32}}" />
 			<Property name="Area" value="{{0.5,-128},{0.25,-16},{0.5,128},{0.25,16}}" />
 			<Property name="MousePassThroughEnabled" value="True" />
-			<Property name="NormalTextColour" value="FFF40000" />
+			<Property name="DisabledTextColour" value="FFF40000" />
 		</Window>
 		
 		<!-- MiniMap -->
