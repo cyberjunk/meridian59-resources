@@ -80,5 +80,6 @@
 	<FalagardMapping windowType="TaharezLook/AvatarCreatorSkillObjectListboxItem" 	targetType="CEGUI/ItemEntry"   	renderer="Core/ItemEntry"   	lookNFeel="TaharezLook/AvatarCreatorSkillObjectListboxItem" />
 	<FalagardMapping windowType="TaharezLook/AvatarCreatorSpellObjectListboxItem" 	targetType="CEGUI/ItemEntry"   	renderer="Core/ItemEntry"   	lookNFeel="TaharezLook/AvatarCreatorSpellObjectListboxItem" />
 	<FalagardMapping windowType="TaharezLook/ObjectBaseListboxItem" 	targetType="CEGUI/ItemEntry"   	renderer="Core/ItemEntry"   	lookNFeel="TaharezLook/ObjectBaseListboxItem" />
+	<FalagardMapping windowType="TaharezLook/AliasListboxItem" 			targetType="CEGUI/ItemEntry"   	renderer="Core/ItemEntry"   	lookNFeel="TaharezLook/AliasListboxItem" />
 </GUIScheme>
 

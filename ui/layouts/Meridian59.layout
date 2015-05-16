@@ -3069,7 +3069,48 @@
 				<!-- TabAliases -->
 				<Window type="DefaultWindow" name="Options.TabAliases" >
 					<Property name="Text" value="Aliases" />
-					<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />									
+					<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+					
+					<!-- KeyDescription -->
+					<Window type="TaharezLook/Label" name="Options.TabAliases.KeyDescription" >
+						<Property name="Area" value="{{0,21},{0,15},{0,96},{0,35}}" />			
+						<Property name="NormalTextColour" value="FF242424" />
+						<Property name="HorzFormatting" value="WordWrapLeftAligned" />
+						<Property name="Text" value="Alias" />						
+					</Window>
+			
+					<!-- AddKey -->
+					<Window type="TaharezLook/Editbox" name="Options.TabAliases.AddKey" >
+						<Property name="Text" value="" />
+						<Property name="Area" value="{{0,21},{0,40},{0,96},{0,65}}" />
+					</Window>
+					
+					<!-- ValueDescription -->
+					<Window type="TaharezLook/Label" name="Options.TabAliases.ValueDescription" >
+						<Property name="Area" value="{{0,101},{0,15},{0,301},{0,35}}" />			
+						<Property name="NormalTextColour" value="FF242424" />
+						<Property name="HorzFormatting" value="WordWrapLeftAligned" />
+						<Property name="Text" value="For" />						
+					</Window>
+			
+					<!-- AddValue -->
+					<Window type="TaharezLook/Editbox" name="Options.TabAliases.AddValue" >
+						<Property name="Text" value="" />
+						<Property name="Area" value="{{0,101},{0,40},{0,301},{0,65}}" />
+					</Window>
+					
+					<!-- Add -->
+					<Window type="TaharezLook/Button" name="Options.TabAliases.Add" >
+						<Property name="Text" value="Add" />
+						<Property name="Area" value="{{0,306},{0,40},{0,361},{0,65}}" />
+						<Property name="MouseCursorImage" value="TaharezLook/MouseTarget" />								
+					</Window>
+							
+					<!-- ListAliases -->
+					<Window type="TaharezLook/ItemListbox" name="Options.TabAliases.Aliases" >
+						<Property name="Area" value="{{0,15},{0,75},{1,-15},{1,-15}}" />
+						<Property name="BackgroundColours" value="tl:00000000 tr:00000000 bl:00000000 br:00000000" />						
+					</Window>
 				</Window>
 				
 				<!-- TabAbout -->
