@@ -27,11 +27,11 @@
     <Image height="16" name="TitlebarLeft" width="8" xPos="68" yPos="2" />
     <Image height="16" name="TitlebarMiddle" width="8" xPos="78" yPos="2" />
     <Image height="16" name="TitlebarRight" width="8" xPos="88" yPos="2" />
-    <Image height="16" name="NewTitlebarLeft" width="13" xPos="61" yPos="127" />
-    <Image height="16" name="NewTitlebarMiddle" width="12" xPos="77" yPos="127" />
-    <Image height="16" name="NewTitlebarRight" width="12" xPos="92" yPos="127" />
-    <Image height="16" name="SysAreaMiddle" width="12" xPos="107" yPos="127" />
-    <Image height="16" name="SysAreaRight" width="13" xPos="122" yPos="127" />
+    <Image height="17" name="NewTitlebarLeft" width="13" xPos="61" yPos="127" />
+    <Image height="17" name="NewTitlebarMiddle" width="44" xPos="76" yPos="127" />
+    <Image height="17" name="NewTitlebarRight" width="12" xPos="92" yPos="127" />
+    <Image height="17" name="SysAreaMiddle" width="12" xPos="107" yPos="127" />
+    <Image height="17" name="SysAreaRight" width="13" xPos="122" yPos="127" />
     <Image height="6" name="StaticLeft" width="6" xPos="41" yPos="89" />
     <Image height="6" name="StaticRight" width="6" xPos="63" yPos="89" />
     <Image height="6" name="StaticTop" width="6" xPos="52" yPos="78" />
@@ -103,7 +103,7 @@
     <Image height="7" name="ListboxBottomLeft" width="7" xPos="41" yPos="99" />
     <Image height="7" name="ListboxBottomRight" width="7" xPos="62" yPos="99" />
     <Image height="6" name="ListboxBackdrop" width="6" xPos="52" yPos="89" />
-    <Image height="16" name="ListboxSelectionBrush" width="16" xPos="8" yPos="70" />
+    <Image height="16" name="ListboxSelectionBrush" width="39" xPos="1" yPos="70" />
     <Image height="16" name="ComboboxEditLeft" width="8" xPos="138" yPos="2" />
     <Image height="16" name="ComboboxEditMiddle" width="8" xPos="148" yPos="2" />
     <Image height="16" name="ComboboxListButtonNormal" width="16" xPos="158" yPos="2" />
@@ -155,8 +155,8 @@
     <Image height="16" name="CloseButtonNormal" width="16" xPos="41" yPos="128" />
     <Image height="16" name="CloseButtonHover" width="16" xPos="41" yPos="146" />
     <Image height="16" name="CloseButtonPressed" width="16" xPos="41" yPos="164" />
-    <Image height="10" name="NewCloseButtonNormal" width="10" xPos="90" yPos="146" />
-    <Image height="10" name="NewCloseButtonHover" width="10" xPos="90" yPos="146" />
+    <Image height="14" name="NewCloseButtonNormal" width="14" xPos="91" yPos="145" />
+    <Image height="14" name="NewCloseButtonHover" width="14" xPos="91" yPos="160" />
     <Image height="10" name="NewCloseButtonPressed" width="10" xPos="90" yPos="146" />
     <Image height="6" name="MultiLineEditboxLeft" width="6" xPos="41" yPos="89" />
     <Image height="6" name="MultiLineEditboxRight" width="6" xPos="63" yPos="89" />
@@ -169,7 +169,8 @@
     <Image height="6" name="MultiLineEditboxBackdrop" width="6" xPos="52" yPos="89" />
     <Image height="14" name="MultiLineEditboxSelectionBrush" width="14" xPos="9" yPos="71" />
     <Image height="17" name="MouseTarget" width="17" xOffset="-8" xPos="182" yOffset="-8" yPos="127" />
-    <Image height="25" name="MouseArrow" width="31" xPos="138" yPos="127" />
+    <Image height="27" name="MouseArrow" width="27" xPos="138" yPos="127" />
+    <Image height="27" name="MouseHand" width="27" xPos="128"  yPos="157" />
     <Image height="18" name="MouseMoveCursor" width="18" xOffset="-8" xPos="201" yOffset="-8" yPos="127" />
     <Image height="18" name="MouseNoSoCursor" width="8" xOffset="-3" xPos="221" yOffset="-8" yPos="127" />
     <Image height="8" name="MouseEsWeCursor" width="18" xOffset="-8" xPos="182" yOffset="-3" yPos="150" />
@@ -251,7 +252,7 @@
 	<Image height="20" name="MoodNeutralHover" width="20" xPos="90" yPos="220" />
 	<Image height="20" name="MoodHappy" width="20" xPos="110" yPos="200" />
 	<Image height="20" name="MoodHappyHover" width="20" xPos="110" yPos="220" />
-	<Image height="22" name="StatusBarBackground" width="22" xPos="6" yPos="231" />
+	<Image height="22" name="StatusBarBackground" width="40" xPos="5" yPos="230" />
 	<Image height="130" name="AvatarBackground" width="256" xPos="256" yPos="2" />
 	<Image height="92" name="TargetBackground" width="256" xPos="256" yPos="2" />
 	<Image height="46" name="MainButtonsBackground" width="182" xPos="256" yPos="148" />
