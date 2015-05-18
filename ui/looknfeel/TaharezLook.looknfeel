@@ -6500,7 +6500,7 @@
 					<UnifiedDim scale="0" offset="14" type="Height"/>
 				</Dim>
 			</Area>
-			<Property name="TooltipText" value="Exile this member!" />
+			<Property name="TooltipText" value="Delete this alias" />
 			<Property name="MouseCursorImage" value="TaharezLook/MouseTarget" />
 			<Property name="NormalImage" value="TaharezLook/RedCloseButton" />
             <Property name="HoverImage" value="TaharezLook/RedCloseButtonHover" />
