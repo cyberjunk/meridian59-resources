@@ -244,14 +244,14 @@
     <Image height="7" name="TreeListOpened" width="11" xPos="164" yPos="111" />
 	
 	<!-- Own -->
-	<Image height="20" name="MoodAngry" width="20" xPos="50" yPos="200" />
-	<Image height="20" name="MoodAngryHover" width="20" xPos="50" yPos="220" />
-	<Image height="20" name="MoodSad" width="20" xPos="70" yPos="200" />
-	<Image height="20" name="MoodSadHover" width="20" xPos="70" yPos="220" />
-	<Image height="20" name="MoodNeutral" width="20" xPos="90" yPos="200" />
-	<Image height="20" name="MoodNeutralHover" width="20" xPos="90" yPos="220" />
-	<Image height="20" name="MoodHappy" width="20" xPos="110" yPos="200" />
-	<Image height="20" name="MoodHappyHover" width="20" xPos="110" yPos="220" />
+	<Image height="18" name="MoodAngry" width="18" xPos="50" yPos="201" />
+	<Image height="18" name="MoodAngryHover" width="18" xPos="50" yPos="221" />
+	<Image height="18" name="MoodSad" width="18" xPos="71" yPos="201" />
+	<Image height="18" name="MoodSadHover" width="18" xPos="71" yPos="221" />
+	<Image height="18" name="MoodNeutral" width="18" xPos="91" yPos="201" />
+	<Image height="18" name="MoodNeutralHover" width="18" xPos="91" yPos="221" />
+	<Image height="18" name="MoodHappy" width="18" xPos="111" yPos="201" />
+	<Image height="18" name="MoodHappyHover" width="18" xPos="111" yPos="221" />
 	<Image height="22" name="StatusBarBackground" width="40" xPos="5" yPos="230" />
 	<Image height="130" name="AvatarBackground" width="256" xPos="256" yPos="2" />
 	<Image height="92" name="TargetBackground" width="256" xPos="256" yPos="2" />
