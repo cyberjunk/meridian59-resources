@@ -187,6 +187,7 @@
         <PropertyDefinition name="PushedTextColour" initialValue="FFFFFFFF" redrawOnWrite="true" type="ColourRect"/>
         <PropertyDefinition name="DisabledTextColour" initialValue="FF7F7F7F" redrawOnWrite="true" type="ColourRect"/>
         <Property name="Size" value="{{0, 256}, {0, 32}}" />
+		<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
         <ImagerySection name="label">
             <TextComponent>
                 <Area>
@@ -292,6 +293,7 @@
         <PropertyDefinition name="PushedTextColour" initialValue="FFFFFFFF" redrawOnWrite="true" type="ColourRect"/>
         <PropertyDefinition name="DisabledTextColour" initialValue="FF7F7F7F" redrawOnWrite="true" type="ColourRect"/>
         <Property name="Size" value="{{0, 128}, {0, 32}}" />
+		<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
         <ImagerySection name="label">
             <TextComponent>
                 <Area>
@@ -672,7 +674,7 @@
 						<OperatorDim op="Subtract">
 							<OperatorDim op="Subtract">
 								<WidgetDim widget="__auto_titlebar__" dimension="Height" />
-								<ImageDim name="TaharezLook/NewCloseButtonNormal" dimension="Width" />
+								<ImageDim name="TaharezLook/NewCloseButtonNormal" dimension="Height" />
 							</OperatorDim>
 							<AbsoluteDim value="0.5" />
                     	</OperatorDim>
@@ -1728,6 +1730,7 @@
 				<Dim type="Width" ><ImageDim name="TaharezLook/VertSliderThumbNormal" dimension="Width" /></Dim>
 				<Dim type="Height" ><UnifiedDim scale="1.0" type="Height" /></Dim>
 			</Area>
+			<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
         </Child>
         <ImagerySection name="main">
             <ImageryComponent>
@@ -3439,6 +3442,7 @@
         <PropertyDefinition name="PushedTextColour" initialValue="FFFFFFFF" redrawOnWrite="true" type="ColourRect"/>
         <PropertyDefinition name="SelectedTextColour" initialValue="FFE0E0E0" redrawOnWrite="true" type="ColourRect"/>
         <PropertyDefinition name="DisabledTextColour" initialValue="FF7F7F7F" redrawOnWrite="true" type="ColourRect"/>
+		<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
         <ImagerySection name="label">
             <TextComponent>
                 <VertFormat type="CentreAligned" />
@@ -5638,6 +5642,7 @@
 				</Dim>
 			</Area>
 			<Property name="AlwaysOnTop" value="True" />
+			<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
 		</Child>
 		<!-- Name -->
 		<Child type ="TaharezLook/Label" nameSuffix="__auto__label">
@@ -5759,9 +5764,7 @@
 					<UnifiedDim scale="0" offset="16" type="Height"/>
 				</Dim>
 			</Area>
-			<!--<Property name="FrameEnabled" value="False" />
-			<Property name="BackgroundEnabled" value="False" />
-			<Property name="MouseInputPropagationEnabled" value="True" />-->
+			<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
 		</Child>
 		<!-- Name -->
 		<Child type ="TaharezLook/Label" nameSuffix="__auto__label">
@@ -6022,6 +6025,7 @@
 		<PropertyDefinition name="SelectionColour" initialValue="FF812700" redrawOnWrite="true" />
 		<Property name="Selectable" value="True" />
 		<Property name="MouseInputPropagationEnabled" value="True" />
+		<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
 		<NamedArea name="ContentSize">
 			<Area>
 				<Dim type="LeftEdge" >
@@ -6056,6 +6060,7 @@
 			</Area>
 			<Property name="HorzFormatting" value="LeftAligned" />
 			<Property name="MouseInputPropagationEnabled" value="True" />
+			<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
 		</Child>	
 		<ImagerySection name="selection">
 			<ImageryComponent>
@@ -6135,7 +6140,6 @@
 				</Dim>
 			</Area>
 			<Property name="MouseInputPropagationEnabled" value="True" />
-			<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
 			<Property name="TooltipText" value="Vote this member for leader." />
 		</Child>
 		<Child type ="TaharezLook/ImageButton" nameSuffix="__auto__imagebutton">

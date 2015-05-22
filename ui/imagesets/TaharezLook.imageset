@@ -157,7 +157,7 @@
     <Image height="16" name="CloseButtonPressed" width="16" xPos="41" yPos="164" />
     <Image height="14" name="NewCloseButtonNormal" width="14" xPos="91" yPos="145" />
     <Image height="14" name="NewCloseButtonHover" width="14" xPos="91" yPos="160" />
-    <Image height="10" name="NewCloseButtonPressed" width="10" xPos="90" yPos="146" />
+    <Image height="14" name="NewCloseButtonPressed" width="14" xPos="91" yPos="160" />
     <Image height="6" name="MultiLineEditboxLeft" width="6" xPos="41" yPos="89" />
     <Image height="6" name="MultiLineEditboxRight" width="6" xPos="63" yPos="89" />
     <Image height="6" name="MultiLineEditboxTop" width="6" xPos="52" yPos="78" />
