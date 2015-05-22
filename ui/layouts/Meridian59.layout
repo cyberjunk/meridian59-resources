@@ -312,7 +312,6 @@
 			<Property name="Text" value="Chat" />
 			<Property name="TitlebarEnabled" value="True" />
 			<Property name="TitlebarFont" value="DejaVuSerif-10-Bold" />
-			<Property name="Area" value="{{0,0},{0,24},{1,0},{1,0}}" />
 			<Property name="MaxSize" value="{{1,0},{1,0}}" />
 			<Property name="Size" value="{{0.35,0},{0.3,0}}" />
 			<Property name="Position" value="{{0.0,0},{0.5,0}}" />
@@ -347,7 +346,6 @@
 		
 		<!-- Avatar -->
 		<Window type="TaharezLook/StaticImage" name="Avatar" >
-			<Property name="Area" value="{{0,0},{0,24},{1,0},{1,0}}" />
 			<Property name="MaxSize" value="{{0,266},{0,140}}" />
 			<Property name="Size" value="{{0,266},{0,140}}" />
 			<Property name="Position" value="{{0,5},{0,25}}" />
@@ -474,7 +472,6 @@
 		
 		<!-- Target -->
 		<Window type="TaharezLook/StaticImage" name="Target" >
-			<Property name="Area" value="{{0,0},{0,24},{1,0},{1,0}}" />
 			<Property name="MaxSize" value="{{0,256},{0,92}}" />
 			<Property name="Size" value="{{0,256},{0,92}}" />
 			<Property name="Position" value="{{0,275},{0,30}}" />
@@ -573,7 +570,6 @@
 		
 		<!-- MiniMap -->
 		<Window type="TaharezLook/StaticImage" name="MiniMap" >
-			<Property name="Area" value="{{0,0},{0,24},{1,0},{1,0}}" />
 			<Property name="MaxSize" value="{{0,256},{0,256}}" />
 			<Property name="Size" value="{{0,256},{0,256}}" />
 			<Property name="Position" value="{{1,-257},{0,25}}" />
@@ -647,7 +643,6 @@
 			<Property name="Text" value="Attributes" />
 			<Property name="TitlebarEnabled" value="True" />
 			<Property name="TitlebarFont" value="DejaVuSerif-10-Bold" />
-			<Property name="Area" value="{{0,0},{0,24},{1,0},{1,0}}" />
 			<Property name="Size" value="{{0,288},{0,380}}" />
 			<Property name="MaxSize" value="{{0,512},{0,512}}" />
 			<Property name="MinSize" value="{{0,256},{0,192}}" />
@@ -690,7 +685,6 @@
 			<Property name="Text" value="Spells" />
 			<Property name="TitlebarEnabled" value="True" />
 			<Property name="TitlebarFont" value="DejaVuSerif-10-Bold" />
-			<Property name="Area" value="{{0,0},{0,24},{1,0},{1,0}}" />
 			<Property name="Size" value="{{0,256},{0,256}}" />
 			<Property name="MaxSize" value="{{1,0},{1,0}}" />
 			<Property name="MinSize" value="{{0,192},{0,192}}" />
@@ -712,7 +706,6 @@
 			<Property name="Text" value="Actions" />
 			<Property name="TitlebarEnabled" value="True" />
 			<Property name="TitlebarFont" value="DejaVuSerif-10-Bold" />
-			<Property name="Area" value="{{0,0},{0,24},{1,0},{1,0}}" />
 			<Property name="MaxSize" value="{{1,0},{1,0}}" />
 			<Property name="Size" value="{{0,192},{0,256}}" />
 			<Property name="Position" value="{{0.5,-128},{0.5,-128}}" />
@@ -733,7 +726,6 @@
 			<Property name="Text" value="Inventory" />
 			<Property name="TitlebarEnabled" value="True" />
 			<Property name="TitlebarFont" value="DejaVuSerif-10-Bold" />
-			<Property name="Area" value="{{0,0},{0,24},{1,0},{1,0}}" />
 			<Property name="MaxSize" value="{{0,288},{1,0}}" />
 			<Property name="MinSize" value="{{0,288},{0,77}}" />
 			<Property name="Size" value="{{0,288},{0,233}}" />
@@ -959,7 +951,6 @@
 		
 		<!-- ActionButtons -->
 		<Window type="TaharezLook/StaticImage" name="ActionButtons" >
-			<Property name="Area" value="{{0,0},{0,24},{1,0},{1,0}}" />
 			<Property name="Size" value="{{0,385},{0,128}}" />
 			<Property name="MaxSize" value="{{0,385},{0,128}}" />
 			<Property name="MinSize" value="{{0,385},{0,128}}" />
