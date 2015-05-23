@@ -1,3 +1,115 @@
+////////////////////////////////
+// VERTEX & FRAGMENT PROGRAMS //
+////////////////////////////////
+
+// AMBIENT
+vertex_program ambient_vs hlsl
+{
+    source general.hlsl
+    target vs_2_0
+    entry_point ambient_vs
+ 
+    default_params
+    {
+        param_named_auto wvpMat worldviewproj_matrix
+		param_named_auto texturemat texture_matrix 0
+    }
+}
+fragment_program ambient_ps hlsl
+{
+    source general.hlsl
+    target ps_2_0
+    entry_point ambient_ps
+ 
+    default_params
+    {
+        param_named_auto ambient ambient_light_colour
+		param_named colormodifier float3 1 1 1
+		param_named opaque float 1.0
+    }
+}
+
+// DIFFUSE 
+vertex_program diffuse_vs hlsl
+{
+    source general.hlsl
+    target vs_2_0
+    entry_point diffuse_vs
+ 
+    default_params
+    {
+        param_named_auto wMat world_matrix
+        param_named_auto wvpMat worldviewproj_matrix   
+		param_named_auto texturemat texture_matrix 0		
+    }
+}
+fragment_program diffuse_ps hlsl
+{
+    source general.hlsl
+    target ps_2_0
+    entry_point diffuse_ps
+ 
+    default_params
+    {
+        param_named_auto lightDif0 light_diffuse_colour 0
+		param_named_auto lightPos0 light_position 0
+        param_named_auto lightAtt0 light_attenuation 0
+		param_named colormodifier float3 1 1 1
+		param_named opaque float 1.0		
+    }
+}
+
+// INVISIBLE 
+vertex_program invisible_vs hlsl
+{
+	source general.hlsl
+	entry_point invisible_vs
+	target vs_2_0
+	
+	default_params
+    {  
+		param_named_auto texturemat texture_matrix 0		
+    }
+}
+fragment_program invisible_ps hlsl
+{
+	source general.hlsl
+	entry_point invisible_ps
+	target ps_2_0
+}
+
+// WATER
+vertex_program water_vs hlsl
+{
+	source general.hlsl
+	entry_point water_vs
+	target vs_2_0
+
+	default_params
+	{
+		param_named_auto worldViewProj_matrix worldviewproj_matrix
+		param_named_auto eyePosition camera_position_object_space
+		param_named scale float3 0.012 0.005 0.03
+		param_named_auto time_0_X time_0_x 100.0
+	}
+}
+fragment_program water_ps hlsl
+{
+	source general.hlsl
+	entry_point water_ps
+	target ps_2_0
+
+	default_params
+	{
+		param_named_auto ambient ambient_light_colour
+	}
+}
+
+////////////////////////////////
+// MATERIALS //
+////////////////////////////////
+
+
 material transparent
 {
 	technique
@@ -185,33 +297,6 @@ material base_material_invisible
 				tex_address_mode clamp
 			}
 		}		
-	}
-}
-
-vertex_program water_vs hlsl
-{
-	source general.hlsl
-	entry_point water_vs
-	target vs_2_0
-
-	default_params
-	{
-		param_named_auto worldViewProj_matrix worldviewproj_matrix
-		param_named_auto eyePosition camera_position_object_space
-		param_named scale float3 0.012 0.005 0.03
-		param_named_auto time_0_X time_0_x 100.0
-	}
-}
-
-fragment_program water_ps hlsl
-{
-	source general.hlsl
-	entry_point water_ps
-	target ps_2_0
-
-	default_params
-	{
-		param_named_auto ambient ambient_light_colour
 	}
 }
 
