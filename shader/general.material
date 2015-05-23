@@ -316,15 +316,12 @@ material base_material_water
 
 			fragment_program_ref water_ps
 			{
-				param_named fadeBias float 0.336
-				param_named fadeExp float 5.546
 			}
 
 			texture_unit
 			{
 				texture noise.dds
 				tex_coord_set 0
-				filtering linear linear none
 			}
 			
 			// set this in code with texture

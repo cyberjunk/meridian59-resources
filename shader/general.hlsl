@@ -186,13 +186,11 @@ float4 water_ps(
 	float3 uvw: TEXCOORD0, 
 	float3 normal: TEXCOORD1, 
 	float3 vVec: TEXCOORD2,
-	uniform float fadeBias,
-	uniform float fadeExp,
-	uniform sampler2D Noise,
-	uniform sampler2D skyBox,
+	uniform sampler2D noise,
+	uniform sampler2D diffusetex,
 	uniform float3 ambient) : COLOR
 {
-   float3 noisy = tex2D(Noise, uvw.xy).xyz;
+   float3 noisy = tex2D(noise, uvw.xy).xyz;
    float3 bump = 2 * noisy - 1;
    
    bump.xz *= 0.15;
@@ -204,10 +202,9 @@ float4 water_ps(
    
    reflVec.z = -reflVec.z;
    
-   float4 refl = tex2D(skyBox, reflVec); 
-   float lrp = 1 - dot(-normView, bump);
+   float4 reflcol = tex2D(diffusetex, reflVec); 
+
+   ambient = ambient + float3(0.01, 0.01, 0.01);
    
-   ambient = ambient + 0.01;
-   
-   return float4(ambient, 0) * lerp(refl, refl, saturate(fadeBias + pow(lrp, fadeExp)));
+   return float4(ambient, 0) * reflcol;
 }
