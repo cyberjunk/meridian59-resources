@@ -1,9 +1,9 @@
 // AMBIENT
 
-vertex_program ambient_vs cg
+vertex_program ambient_vs hlsl
 {
-    source general.cg
-    profiles vs_2_0
+    source general.hlsl
+    target vs_2_0
     entry_point ambient_vs
  
     default_params
@@ -13,10 +13,10 @@ vertex_program ambient_vs cg
     }
 }
  
-fragment_program ambient_ps cg
+fragment_program ambient_ps hlsl
 {
-    source general.cg
-    profiles ps_2_0
+    source general.hlsl
+    target ps_2_0
     entry_point ambient_ps
  
     default_params
@@ -29,10 +29,10 @@ fragment_program ambient_ps cg
 
 // DIFFUSE 
 
-vertex_program diffuse_vs cg
+vertex_program diffuse_vs hlsl
 {
-    source general.cg
-    profiles vs_2_0
+    source general.hlsl
+    target vs_2_0
     entry_point diffuse_vs
  
     default_params
@@ -43,10 +43,10 @@ vertex_program diffuse_vs cg
     }
 }
 
-fragment_program diffuse_ps cg
+fragment_program diffuse_ps hlsl
 {
-    source general.cg
-    profiles ps_2_0
+    source general.hlsl
+    target ps_2_0
     entry_point diffuse_ps
  
     default_params
@@ -60,11 +60,11 @@ fragment_program diffuse_ps cg
 }
 
 // INVISIBLE 
-vertex_program invisible_vs cg
+vertex_program invisible_vs hlsl
 {
-	source general.cg
+	source general.hlsl
 	entry_point invisible_vs
-	profiles vs_2_0
+	target vs_2_0
 	
 	default_params
     {  
@@ -72,9 +72,9 @@ vertex_program invisible_vs cg
     }
 }
 
-fragment_program invisible_ps cg
+fragment_program invisible_ps hlsl
 {
-	source general.cg
+	source general.hlsl
 	entry_point invisible_ps
-	profiles ps_2_0
+	target ps_2_0
 }

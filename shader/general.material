@@ -188,11 +188,11 @@ material base_material_invisible
 	}
 }
 
-vertex_program water_vs cg
+vertex_program water_vs hlsl
 {
-	source general.cg
+	source general.hlsl
 	entry_point water_vs
-	profiles vs_2_0
+	target vs_2_0
 
 	default_params
 	{
@@ -203,11 +203,11 @@ vertex_program water_vs cg
 	}
 }
 
-fragment_program water_ps cg
+fragment_program water_ps hlsl
 {
-	source general.cg
+	source general.hlsl
 	entry_point water_ps
-	profiles ps_2_0
+	target ps_2_0
 
 	default_params
 	{
