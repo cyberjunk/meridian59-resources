@@ -1,73 +1,147 @@
-struct VOut
+/********************************/
+/* Vertex Shader Output Structs */
+/********************************/
+
+struct VOut1
+{
+	float4 p	: POSITION;
+	float2 uv	: TEXCOORD0;
+};
+
+struct VOut2
 {
 	float4 p    : POSITION;
 	float2 uv   : TEXCOORD0;
 	float4 wp   : TEXCOORD1;
 };
 
-void ambient_vs(
+struct VOut3
+{
+	float4 p		: POSITION;
+	float2 uv		: TEXCOORD3;
+	float2 uvnoise	: TEXCOORD0;
+	float4 pproj	: TEXCOORD1;
+};
+
+struct VOut4 
+{
+	float4 p		: POSITION;
+	float3 uvw		: TEXCOORD0;
+	float3 normal	: TEXCOORD1;
+	float3 vVec		: TEXCOORD2;
+};
+
+/********************************/
+/*        VERTEX SHADERS        */
+/********************************/
+
+VOut1 ambient_vs(
 	float4 p : POSITION,
 	float2 uv : TEXCOORD0,
 	uniform float4x4 wvpMat,
-	uniform float4x4 texturemat,
-	out float4 oPos : POSITION,
-	out float2 oUV : TEXCOORD0)
+	uniform float4x4 texMat)
 {
-	oPos = mul(wvpMat, p);
-	oUV = mul(texturemat,float4(uv,0,1)).xy;
+	VOut1 OUT;
+
+	OUT.p  = mul(wvpMat, p);
+	OUT.uv = mul(texMat, float4(uv, 0, 1)).xy;
+
+	return OUT;
 }
 
+VOut2 diffuse_vs(
+	float4 p : POSITION,
+	float2 uv : TEXCOORD0,
+	uniform float4x4 wvpMat,
+	uniform float4x4 texMat,
+	uniform float4x4 wMat)
+{
+	VOut2 OUT;
+
+	OUT.p  = mul(wvpMat, p);
+	OUT.uv = mul(texMat, float4(uv, 0, 1)).xy;
+	OUT.wp = mul(wMat, p);
+
+	return OUT;
+}
+
+VOut3 invisible_vs(
+	float4 p : POSITION,
+	float2 uv : TEXCOORD0,
+	uniform float4x4 wvpMat,
+	uniform float4x4 texMat,
+	uniform float timeVal)
+{
+	VOut3 OUT;
+
+	const float4x4 SCALEMAT = float4x4(
+		0.5,  0.0, 0.0, 0.5,
+		0.0, -0.5, 0.0, 0.5,
+		0.0,  0.0, 0.5, 0.5,
+		0.0,  0.0, 0.0, 1.0);
+
+	OUT.p		= mul(wvpMat, p);
+	OUT.uv		= mul(texMat, float4(uv, 0, 1)).xy;
+	OUT.pproj	= mul(SCALEMAT, OUT.p);
+	OUT.uvnoise = uv + timeVal;
+	
+	return OUT;
+}
+
+VOut4 water_vs(
+	float4 p: POSITION,
+	float3 normal : NORMAL,
+	uniform float4x4 wvpMat,
+	uniform float3 scale,
+	uniform float2 waveSpeed,
+	uniform float noiseSpeed,
+	uniform float time_0_X,
+	uniform float3 eyePos)
+{
+	VOut4 OUT;
+
+	OUT.p      = mul(wvpMat, p);
+	OUT.uvw	   = p.xyz * scale;
+	OUT.uvw.xz += waveSpeed * time_0_X;
+	OUT.uvw.y  += OUT.uvw.z + noiseSpeed * time_0_X;
+	OUT.vVec   = p.xyz - eyePos;
+	OUT.normal = normal;
+
+	return OUT;
+}
+
+/********************************/
+/*        PIXEL SHADERS         */
+/********************************/
+
 float4 ambient_ps(
-	in float2 uv : TEXCOORD0,
+	VOut1 vsout,
 	uniform float3 ambient,
 	uniform float3 colormodifier,
 	uniform float opaque,
-	uniform sampler2D dMap): COLOR0
+	uniform sampler2D dMap : TEXUNIT0) : COLOR0
 {
-    return tex2D(dMap, uv) * float4(
+	return tex2D(dMap, vsout.uv) * float4(
 		ambient[0] * colormodifier[0],
 		ambient[1] * colormodifier[1],
 		ambient[2] * colormodifier[2],		
 		1.0 * opaque);
 }
 
-VOut diffuse_vs(
-	float4 p : POSITION,
-	float2 uv : TEXCOORD0,
-	uniform float4x4 wMat,
-	uniform float4x4 wvpMat,
-	uniform float4x4 texturemat)
-{
-	VOut OUT;
-	
-	OUT.wp = mul(wMat, p);
-	OUT.p = mul(wvpMat, p);
-	OUT.uv = mul(texturemat,float4(uv,0,1)).xy;
- 
-	return OUT;
-}
- 
 float4 diffuse_ps(
-	float2 uv : TEXCOORD0,
-	float4 wp : TEXCOORD1,
+	VOut2 vsout,
 	uniform float3 lightDif0,
 	uniform float4 lightPos0,
 	uniform float4 lightAtt0,
 	uniform float3 colormodifier,
 	uniform float opaque,
-	uniform sampler2D diffuseMap : TEXUNIT0): COLOR0
+	uniform sampler2D diffuseMap : TEXUNIT0) : COLOR0
 {  
-	// distance, attenuation
-	half lightDist = length(lightPos0.xyz - wp.xyz) / lightAtt0.r;
+	half lightDist = length(lightPos0.xyz - vsout.wp.xyz) / lightAtt0.r;
 	half la = 1.0 - (lightDist * lightDist);
-
-	// the argb value from diffuse texture
-	float4 diffuseTex = tex2D(diffuseMap, uv);
-	
-	// the outputcolor RGB, no alpha
+	float4 diffuseTex = tex2D(diffuseMap, vsout.uv);
 	float3 diffuseContrib = (lightDif0 * diffuseTex.rgb * la);
 
-	// return outputcolor RGB with alpha from texture
 	return float4(
 		diffuseContrib[0] * colormodifier[0],
 		diffuseContrib[1] * colormodifier[1],
@@ -75,69 +149,26 @@ float4 diffuse_ps(
 		diffuseTex.a * opaque);
 }
 
-void invisible_vs(
-		float4 pos			: POSITION,
-		float4 normal		: NORMAL,
-		float2 tex			: TEXCOORD0,
-		
-		out float4 oPos		: POSITION,
-		out float3 noiseCoord : TEXCOORD0,
-		out float4 projectionCoord : TEXCOORD1,
-		out float3 oEyeDir : TEXCOORD2, 
-		out float2 oUV : TEXCOORD3, 
-
-		uniform float4x4 worldViewProjMatrix,
-		uniform float4x4 texturemat,
-		uniform float3 eyePosition, // object space
-		uniform float timeVal,
-		uniform float scale,  // the amount to scale the noise texture by
-		uniform float scroll, // the amount by which to scroll the noise
-		uniform float noise  // the noise perturb as a factor of the  time
-		)
-{
-	oPos = mul(worldViewProjMatrix, pos);
-	// Projective texture coordinates, adjust for mapping
-	float4x4 scalemat = float4x4(0.5,   0,   0, 0.5, 
-	                               0,-0.5,   0, 0.5,
-								   0,   0, 0.5, 0.5,
-								   0,   0,   0,   1);
-	projectionCoord = mul(scalemat, oPos);
-	// Noise map coords
-	noiseCoord.xy = (tex + (timeVal * scroll)) * scale;
-	noiseCoord.z = noise * timeVal;
-
-	oEyeDir = normalize(pos.xyz - eyePosition); 
-	
-	oUV = mul(texturemat,float4(tex,0,1)).xy; 
-	
-}
-
-void invisible_ps(
-		float4 pos					: POSITION,
-		float3 noiseCoord			: TEXCOORD0,
-		float4 projectionCoord		: TEXCOORD1,
-		float3 eyeDir				: TEXCOORD2,
-		float2 uv					: TEXCOORD3,
-		
-		out float4 col		: COLOR,
-		
-		uniform float4 tintColour,
-		uniform float noiseScale, 
-		uniform sampler2D diffuseMap : register(s0),
-		uniform sampler2D noiseMap : register(s1),
-		uniform sampler2D refractMap : register(s2)
-		)
+float4 invisible_ps(
+	VOut3 vsout,
+	uniform float4 tintColour,
+	uniform float noiseScale, 
+	uniform sampler2D diffuseMap : register(s0),
+	uniform sampler2D noiseMap : register(s1),
+	uniform sampler2D refractMap : register(s2)) : COLOR0
 {	
+	float4 col;
+
 	// the argb value from diffuse texture
-	float4 diffuseTex = tex2D(diffuseMap, uv);
+	float4 diffuseTex = tex2D(diffuseMap, vsout.uv);
 	
 	if (diffuseTex.a > 0.0)
 	{
 		// Do the tex projection manually so we can distort _after_
-		float2 final = projectionCoord.xy / projectionCoord.w;
+		float2 final = vsout.pproj.xy / vsout.pproj.w;
 
 		// Noise
-		float3 noiseNormal = (tex2D(noiseMap, (noiseCoord.xy / 5)).rgb - 0.5).rbg * noiseScale;
+		float3 noiseNormal = (tex2D(noiseMap, (vsout.uvnoise / 5)).rgb - 0.5).rbg * noiseScale;
 		final += noiseNormal.xz;
 
 		// Final colour
@@ -147,64 +178,31 @@ void invisible_ps(
 	{
 		col = diffuseTex;
 	}
-}
 
-
-
-
-struct VS_OUTPUT {
-   float4 Pos:    POSITION;
-   float3 uvw:    TEXCOORD0;
-   float3 normal: TEXCOORD1;
-   float3 vVec:   TEXCOORD2;
-};
-
-VS_OUTPUT water_vs(
-	float4 Pos: POSITION, 
-	float3 normal: NORMAL,
-	uniform float4x4 worldViewProj_matrix,
-	uniform float3 scale,
-	uniform float2 waveSpeed,
-	uniform float noiseSpeed,
-	uniform float time_0_X,
-	uniform float3 eyePosition)
-{
-   VS_OUTPUT Out;
-
-   Out.Pos    = mul(worldViewProj_matrix, Pos); 
-   Out.uvw    = Pos.xyz * scale;
-   Out.uvw.xz += waveSpeed * time_0_X;
-   Out.uvw.y  += Out.uvw.z + noiseSpeed * time_0_X;  
-   Out.vVec   = Pos.xyz - eyePosition;
-   Out.normal = normal;
-
-   return Out;
+	return col;
 }
 
 float4 water_ps(
-	float4 Pos: POSITION,
-	float3 uvw: TEXCOORD0, 
-	float3 normal: TEXCOORD1, 
-	float3 vVec: TEXCOORD2,
+	VOut4 vsout,
 	uniform sampler2D noise,
 	uniform sampler2D diffusetex,
-	uniform float3 ambient) : COLOR
+	uniform float3 ambient) : COLOR0
 {
-   float3 noisy = tex2D(noise, uvw.xy).xyz;
-   float3 bump = 2 * noisy - 1;
+	float3 noisy = tex2D(noise, vsout.uvw.xy).xyz;
+	float3 bump = 2 * noisy - 1;
    
-   bump.xz *= 0.15;
-   bump.y = 0.8 * abs(bump.y) + 0.2;
-   bump = normalize(normal + bump);
+	bump.xz *= 0.15;
+	bump.y = 0.8 * abs(bump.y) + 0.2;
+	bump = normalize(vsout.normal + bump);
 
-   float3 normView = normalize(vVec);
-   float3 reflVec = reflect(normView, bump);
+	float3 normView = normalize(vsout.vVec);
+	float3 reflVec = reflect(normView, bump);
    
-   reflVec.z = -reflVec.z;
+	reflVec.z = -reflVec.z;
    
-   float4 reflcol = tex2D(diffusetex, reflVec); 
+	float4 reflcol = tex2D(diffusetex, reflVec); 
 
-   ambient = ambient + float3(0.01, 0.01, 0.01);
+	ambient = ambient + float3(0.01, 0.01, 0.01);
    
-   return float4(ambient, 0) * reflcol;
+	return float4(ambient, 0) * reflcol;
 }
