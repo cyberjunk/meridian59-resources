@@ -92,18 +92,19 @@ VOut4 water_vs(
 	float4 p: POSITION,
 	float3 normal : NORMAL,
 	uniform float4x4 wvpMat,
-	uniform float3 scale,
 	uniform float2 waveSpeed,
-	uniform float noiseSpeed,
 	uniform float time_0_X,
 	uniform float3 eyePos)
 {
 	VOut4 OUT;
 
+	const float NOISESPEED = 0.1;
+	const float3 SCALE = float3(0.012, 0.005, 0.03);
+
 	OUT.p      = mul(wvpMat, p);
-	OUT.uvw	   = p.xyz * scale;
+	OUT.uvw	   = p.xyz * SCALE;
 	OUT.uvw.xz += waveSpeed * time_0_X;
-	OUT.uvw.y  += OUT.uvw.z + noiseSpeed * time_0_X;
+	OUT.uvw.y  += OUT.uvw.z + NOISESPEED * time_0_X;
 	OUT.vVec   = p.xyz - eyePos;
 	OUT.normal = normal;
 
@@ -118,27 +119,27 @@ float4 ambient_ps(
 	VOut1 vsout,
 	uniform float3 ambient,
 	uniform float4 colormodifier,
-	uniform sampler2D dMap : TEXUNIT0) : COLOR0
+	uniform sampler2D diffusetex : TEXUNIT0) : COLOR0
 {
-	return tex2D(dMap, vsout.uv) * float4(
+	return tex2D(diffusetex, vsout.uv) * float4(
 		ambient[0] * colormodifier[0],
 		ambient[1] * colormodifier[1],
 		ambient[2] * colormodifier[2],		
-		1.0 * colormodifier[3]);
+		colormodifier[3]);
 }
 
 float4 diffuse_ps(
 	VOut2 vsout,
-	uniform float3 lightDif0,
-	uniform float4 lightPos0,
-	uniform float4 lightAtt0,
+	uniform float3 lightCol,
+	uniform float4 lightPos,
+	uniform float4 lightAtt,
 	uniform float4 colormodifier,
-	uniform sampler2D diffuseMap : TEXUNIT0) : COLOR0
+	uniform sampler2D diffusetex : TEXUNIT0) : COLOR0
 {  
-	half lightDist = length(lightPos0.xyz - vsout.wp.xyz) / lightAtt0.r;
-	half la = 1.0 - (lightDist * lightDist);
-	float4 diffuseTex = tex2D(diffuseMap, vsout.uv);
-	float3 diffuseContrib = (lightDif0 * diffuseTex.rgb * la);
+	float lightDist       = length(lightPos.xyz - vsout.wp.xyz) / lightAtt.r;
+	float lightScale      = 1.0 - (lightDist * lightDist);
+	float4 diffuseTex     = tex2D(diffusetex, vsout.uv);
+	float3 diffuseContrib = lightCol * diffuseTex.rgb * lightScale;
 
 	return float4(
 		diffuseContrib[0] * colormodifier[0],
@@ -149,44 +150,32 @@ float4 diffuse_ps(
 
 float4 invisible_ps(
 	VOut3 vsout,
-	uniform float4 tintColour,
-	uniform float noiseScale, 
-	uniform sampler2D diffuseMap : register(s0),
-	uniform sampler2D noiseMap : register(s1),
-	uniform sampler2D refractMap : register(s2)) : COLOR0
+	uniform sampler2D diffusetex : TEXUNIT0,
+	uniform sampler2D noisetex : TEXUNIT1,
+	uniform sampler2D refracttex : TEXUNIT2) : COLOR0
 {	
-	float4 col;
-
-	// the argb value from diffuse texture
-	float4 diffuseTex = tex2D(diffuseMap, vsout.uv);
+	float4 diffuseTex = tex2D(diffusetex, vsout.uv);
 	
 	if (diffuseTex.a > 0.0)
 	{
-		// Do the tex projection manually so we can distort _after_
-		float2 final = vsout.pproj.xy / vsout.pproj.w;
+		float3 noisen = (tex2D(noisetex, (vsout.uvnoise * 0.2)).rgb - 0.5).rbg * 0.05;
+		float2 final  = (vsout.pproj.xy / vsout.pproj.w) + noisen.xz;
 
-		// Noise
-		float3 noiseNormal = (tex2D(noiseMap, (vsout.uvnoise / 5)).rgb - 0.5).rbg * noiseScale;
-		final += noiseNormal.xz;
-
-		// Final colour
-		col = tex2D(refractMap, final) + tintColour;
+		return tex2D(refracttex, final);
 	}	
 	else
 	{
-		col = diffuseTex;
+		return diffuseTex;
 	}
-
-	return col;
 }
 
 float4 water_ps(
 	VOut4 vsout,
-	uniform sampler2D noise,
-	uniform sampler2D diffusetex,
-	uniform float3 ambient) : COLOR0
+	uniform float3 ambient,
+	uniform sampler2D noisetex : TEXUNIT0,
+	uniform sampler2D diffusetex : TEXUNIT1) : COLOR0
 {
-	float3 noisy = tex2D(noise, vsout.uvw.xy).xyz;
+	float3 noisy = tex2D(noisetex, vsout.uvw.xy).xyz;
 	float3 bump = 2 * noisy - 1;
    
 	bump.xz *= 0.15;

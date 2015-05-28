@@ -55,7 +55,6 @@ vertex_program water_vs hlsl
 		param_named_auto wvpMat worldviewproj_matrix
 		param_named_auto eyePos camera_position_object_space
 		param_named_auto time_0_X time_0_x 100.0
-		param_named scale float3 0.012 0.005 0.03
 	}
 }
 
@@ -80,9 +79,9 @@ fragment_program diffuse_ps hlsl
  
     default_params
     {
-        param_named_auto lightDif0 light_diffuse_colour 0
-		param_named_auto lightPos0 light_position 0
-        param_named_auto lightAtt0 light_attenuation 0
+        param_named_auto lightCol light_diffuse_colour 0
+		param_named_auto lightPos light_position 0
+        param_named_auto lightAtt light_attenuation 0
 		param_named colormodifier float4 1 1 1 1		
     }
 }
@@ -96,8 +95,6 @@ fragment_program invisible_ps hlsl
 	
 	default_params
     {
-		param_named tintColour float4 0.005 0.005 0.005 1
-		param_named noiseScale float 0.05 
 	}
 }
 
@@ -302,8 +299,6 @@ material base_material_water
 		
 			vertex_program_ref water_vs
 			{
-				param_named waveSpeed float2 0.0 0.1
-				param_named noiseSpeed float 0.1
 			}
 
 			fragment_program_ref water_ps
