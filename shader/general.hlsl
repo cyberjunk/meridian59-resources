@@ -117,15 +117,14 @@ VOut4 water_vs(
 float4 ambient_ps(
 	VOut1 vsout,
 	uniform float3 ambient,
-	uniform float3 colormodifier,
-	uniform float opaque,
+	uniform float4 colormodifier,
 	uniform sampler2D dMap : TEXUNIT0) : COLOR0
 {
 	return tex2D(dMap, vsout.uv) * float4(
 		ambient[0] * colormodifier[0],
 		ambient[1] * colormodifier[1],
 		ambient[2] * colormodifier[2],		
-		1.0 * opaque);
+		1.0 * colormodifier[3]);
 }
 
 float4 diffuse_ps(
@@ -133,8 +132,7 @@ float4 diffuse_ps(
 	uniform float3 lightDif0,
 	uniform float4 lightPos0,
 	uniform float4 lightAtt0,
-	uniform float3 colormodifier,
-	uniform float opaque,
+	uniform float4 colormodifier,
 	uniform sampler2D diffuseMap : TEXUNIT0) : COLOR0
 {  
 	half lightDist = length(lightPos0.xyz - vsout.wp.xyz) / lightAtt0.r;
@@ -146,7 +144,7 @@ float4 diffuse_ps(
 		diffuseContrib[0] * colormodifier[0],
 		diffuseContrib[1] * colormodifier[1],
 		diffuseContrib[2] * colormodifier[2],
-		diffuseTex.a * opaque);
+		diffuseTex.a * colormodifier[3]);
 }
 
 float4 invisible_ps(
