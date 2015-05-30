@@ -606,6 +606,7 @@
         <Property name="AutoRenderingSurface" value="True" />
         <Property name="Size" value="{{0.3, 0}, {0.3, 0}}" />
 		<Property name="RollUpEnabled" value="False" />
+		<Property name="SizingBorderThickness" value="8.0" />
         <NamedArea name="ClientWithTitleWithFrame">
             <Area>
                 <Dim type="LeftEdge" ><ImageDim name="TaharezLook/WindowTopLeft" dimension="Width" /></Dim>
