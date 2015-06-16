@@ -3124,7 +3124,248 @@
 				<!-- TabAbout -->
 				<Window type="DefaultWindow" name="Options.TabAbout" >
 					<Property name="Text" value="About" />
-					<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />									
+					<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+					
+					<!-- TabControl -->
+					<Window type="TaharezLook/TabControl" name="Options.TabAbout.TabControl" >				
+						<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+						<Property name="TabHeight" value="{0,20}" />
+						
+						<!-- TabGeneral -->
+						<Window type="DefaultWindow" name="Options.TabAbout.TabGeneral" >
+							<Property name="Text" value="General" />
+							<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+
+							<!-- Disclaimer1Description -->
+							<Window type="TaharezLook/Label" name="Options.TabAbout.TabGeneral.Disclaimer1Desc" >
+								<Property name="Area" value="{{0,10},{0,10},{0,150},{0,30}}" />			
+								<Property name="NormalTextColour" value="FF242424" />
+								<Property name="Text" value="OgreClient 1.0.3.7" />
+								<Property name="Font" value="DejaVuSerif-10-Bold" />
+								<Property name="HorzFormatting" value="WordWrapLeftAligned" />							
+							</Window>							
+							<!-- Disclaimer1 -->
+							<Window type="TaharezLook/Label" name="Options.TabAbout.TabGeneral.Disclaimer1" >
+								<Property name="Area" value="{{0,10},{0,35},{1,-10},{0,55}}" />			
+								<Property name="NormalTextColour" value="FF242424" />
+								<Property name="HorzFormatting" value="WordWrapLeftAligned" />
+								<Property name="Text" value="Copyright © 2012-2015 Clint Banzhaf." />						
+							</Window>
+
+							<!-- ImageLogoGPL3 -->
+							<Window type="TaharezLook/StaticImage" name="Options.TabAbout.TabGeneral.ImageLogoGPL3" >
+								<Property name="Area" value="{{1.0,-137},{0,10},{1.0,-10},{0,56}}" />
+								<Property name="FrameEnabled" value="False" />
+								<Property name="BackgroundEnabled" value="False" />
+								<Property name="Image" value="TaharezLook/LogoGPL3" />
+								<Property name="TooltipText" value="This software is released under GPL v3." />
+							</Window>
+									
+							<!-- ContributorsDescription -->
+							<Window type="TaharezLook/Label" name="Options.TabAbout.TabGeneral.ContributorsDescription" >
+								<Property name="Area" value="{{0,10},{0,70},{0,150},{0,90}}" />			
+								<Property name="NormalTextColour" value="FF242424" />
+								<Property name="Text" value="Contributions by" />
+								<Property name="Font" value="DejaVuSerif-10-Bold" />
+								<Property name="HorzFormatting" value="WordWrapLeftAligned" />						
+							</Window>	
+							
+							<!-- Contributors -->
+							<Window type="TaharezLook/Label" name="Options.TabAbout.TabGeneral.Contributors" >
+								<Property name="Area" value="{{0,10},{0,95},{1,-10},{0,145}}" />			
+								<Property name="NormalTextColour" value="FF242424" />
+								<Property name="HorzFormatting" value="WordWrapLeftAligned" />
+								<Property name="Text" value="Florian Neuner, Mario Moser, Mark Sturm, the OpenMeridian developers and all the kind folks out there providing free game resources." />						
+							</Window>
+
+							<!-- Disclaimer3Description -->
+							<Window type="TaharezLook/Label" name="Options.TabAbout.TabGeneral.Disclaimer3Desc" >
+								<Property name="Area" value="{{0,10},{0,160},{0,150},{0,180}}" />			
+								<Property name="NormalTextColour" value="FF242424" />
+								<Property name="Text" value="Powered by" />
+								<Property name="Font" value="DejaVuSerif-10-Bold" />
+								<Property name="HorzFormatting" value="WordWrapLeftAligned" />						
+							</Window>
+
+							<!-- ImageLogoOgre3D -->
+							<Window type="TaharezLook/StaticImage" name="Options.TabAbout.TabGeneral.ImageLogoOgre3D" >
+								<Property name="Area" value="{{0,10},{0,190},{0,90},{0,230}}" />
+								<Property name="FrameEnabled" value="False" />
+								<Property name="BackgroundEnabled" value="False" />
+								<Property name="Image" value="TaharezLook/LogoOgre3D" />
+								<Property name="TooltipText" value="Ogre3D - http://ogre3d.org" />
+							</Window>
+							
+							<!-- ImageLogoCEGUI -->
+							<Window type="TaharezLook/StaticImage" name="Options.TabAbout.TabGeneral.ImageLogoCEGUI" >
+								<Property name="Area" value="{{0,100},{0,190},{0,180},{0,230}}" />
+								<Property name="FrameEnabled" value="False" />
+								<Property name="BackgroundEnabled" value="False" />
+								<Property name="Image" value="TaharezLook/LogoCEGUI" />
+								<Property name="TooltipText" value="CEGUI - http://cegui.org.uk" />
+							</Window>
+
+							<!-- ImageLogoIrrKlang -->
+							<Window type="TaharezLook/StaticImage" name="Options.TabAbout.TabGeneral.ImageLogoIrrKlang" >
+								<Property name="Area" value="{{0,190},{0,190},{0,270},{0,230}}" />
+								<Property name="FrameEnabled" value="False" />
+								<Property name="BackgroundEnabled" value="False" />
+								<Property name="Image" value="TaharezLook/LogoIrrKlang" />
+								<Property name="TooltipText" value="IrrKlang - http://ambiera.com/irrklang" />
+							</Window>	
+
+							<!-- Disclaimer2Description -->
+							<Window type="TaharezLook/Label" name="Options.TabAbout.TabGeneral.Disclaimer2Desc" >
+								<Property name="Area" value="{{0,10},{0,270},{0,150},{0,290}}" />			
+								<Property name="NormalTextColour" value="FF242424" />
+								<Property name="Text" value="Meridian 59" />
+								<Property name="Font" value="DejaVuSerif-10-Bold" />
+								<Property name="HorzFormatting" value="WordWrapLeftAligned" />						
+							</Window>	
+							
+							<!-- Disclaimer2 -->
+							<Window type="TaharezLook/Label" name="Options.TabAbout.TabGeneral.Disclaimer2" >
+								<Property name="Area" value="{{0,10},{0,295},{1,-10},{0,340}}" />			
+								<Property name="NormalTextColour" value="FF242424" />
+								<Property name="HorzFormatting" value="WordWrapLeftAligned" />
+								<Property name="Text" value="Copyright © 1994-2015 Andrew and Christopher Kirmse. 
+								Meridian is a registered trademark." />						
+							</Window>
+
+							<!-- Disclaimer1Description -->
+							<Window type="TaharezLook/Label" name="Options.TabAbout.TabGeneral.ThanksKirmses" >
+								<Property name="Area" value="{{0,20},{0,350},{1,-20},{0,370}}" />			
+								<Property name="NormalTextColour" value="FF242424" />
+								<Property name="Text" value="Thanks to you for making this game open-source." />
+								<Property name="Font" value="DejaVuSerif-10-Italic" />
+								<Property name="HorzFormatting" value="WordWrapLeftAligned" />							
+							</Window>								
+						</Window>
+						
+						<!-- TabHistory -->
+						<Window type="DefaultWindow" name="Options.TabAbout.TabHistory" >
+							<Property name="Text" value="Meridian 59 - History" />
+							<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+							
+							<!-- TabControl -->
+							<Window type="TaharezLook/TabControl" name="Options.TabAbout.TabHistory.TabControl" >				
+								<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+								<Property name="TabHeight" value="{0,20}" />
+							
+								<!-- TabEvolution -->
+								<Window type="TaharezLook/ScrollablePane" name="Options.TabAbout.TabHistory.TabEvolution" >
+									<Property name="Text" value="Evolution (2004)" />
+									<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+								
+									<!-- ImageEvolution -->
+									<Window type="TaharezLook/StaticImage" name="Options.TabAbout.TabHistory.ImageEvolution" >
+										<Property name="Area" value="{{0.5,-143},{0,0},{0.5,143},{0,1657}}" />
+										<Property name="FrameEnabled" value="False" />
+										<Property name="BackgroundEnabled" value="False" />
+										<Property name="MouseInputPropagationEnabled" value="True" />
+									</Window>								
+								</Window>
+								
+								<!-- TabResurrection -->
+								<Window type="TaharezLook/ScrollablePane" name="Options.TabAbout.TabHistory.TabResurrection" >
+									<Property name="Text" value="Resurrection (2002)" />
+									<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+									
+									<!-- ImageResurrection -->
+									<Window type="TaharezLook/StaticImage" name="Options.TabAbout.TabHistory.ImageResurrection" >
+										<Property name="Area" value="{{0.5,-143},{0,0},{0.5,143},{0,1419}}" />
+										<Property name="FrameEnabled" value="False" />
+										<Property name="BackgroundEnabled" value="False" />
+										<Property name="MouseInputPropagationEnabled" value="True" />
+									</Window>
+								</Window>
+								
+								<!-- TabDarkAuspices -->
+								<Window type="TaharezLook/ScrollablePane" name="Options.TabAbout.TabHistory.TabDarkAuspices" >
+									<Property name="Text" value="Dark Auspices (1999)" />
+									<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+									
+									<!-- ImageDarkAuspices -->
+									<Window type="TaharezLook/StaticImage" name="Options.TabAbout.TabHistory.ImageDarkAuspices" >
+										<Property name="Area" value="{{0.5,-143},{0,0},{0.5,143},{0,1111}}" />
+										<Property name="FrameEnabled" value="False" />
+										<Property name="BackgroundEnabled" value="False" />
+										<Property name="MouseInputPropagationEnabled" value="True" />
+									</Window>
+								</Window>
+								
+								<!-- TabInsurrection -->
+								<Window type="TaharezLook/ScrollablePane" name="Options.TabAbout.TabHistory.TabInsurrection" >
+									<Property name="Text" value="Insurrection (1998)" />
+									<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+									
+									<!-- ImageInsurrection -->
+									<Window type="TaharezLook/StaticImage" name="Options.TabAbout.TabHistory.ImageInsurrection" >
+										<Property name="Area" value="{{0.5,-143},{0,0},{0.5,143},{0,1284}}" />
+										<Property name="FrameEnabled" value="False" />
+										<Property name="BackgroundEnabled" value="False" />
+										<Property name="MouseInputPropagationEnabled" value="True" />
+									</Window>
+								</Window>
+								
+								<!-- TabRenaissance -->
+								<Window type="TaharezLook/ScrollablePane" name="Options.TabAbout.TabHistory.TabRenaissance" >
+									<Property name="Text" value="Renaissance (1998)" />
+									<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+									
+									<!-- ImageRenaissance -->
+									<Window type="TaharezLook/StaticImage" name="Options.TabAbout.TabHistory.ImageRenaissance" >
+										<Property name="Area" value="{{0.5,-143},{0,0},{0.5,143},{0,1500}}" />
+										<Property name="FrameEnabled" value="False" />
+										<Property name="BackgroundEnabled" value="False" />
+										<Property name="MouseInputPropagationEnabled" value="True" />
+									</Window>
+								</Window>
+								
+								<!-- TabRevelation -->
+								<Window type="TaharezLook/ScrollablePane" name="Options.TabAbout.TabHistory.TabRevelation" >
+									<Property name="Text" value="Revelation (1997)" />
+									<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+									
+									<!-- ImageRevelation -->
+									<Window type="TaharezLook/StaticImage" name="Options.TabAbout.TabHistory.ImageRevelation" >
+										<Property name="Area" value="{{0.5,-143},{0,0},{0.5,143},{0,1792}}" />
+										<Property name="FrameEnabled" value="False" />
+										<Property name="BackgroundEnabled" value="False" />
+										<Property name="MouseInputPropagationEnabled" value="True" />
+									</Window>
+								</Window>
+								
+								<!-- TabValeOfSorrow -->
+								<Window type="TaharezLook/ScrollablePane" name="Options.TabAbout.TabHistory.TabValeOfSorrow" >
+									<Property name="Text" value="Vale of Sorrow (1997)" />
+									<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+									
+									<!-- ImageValeOfSorrow -->
+									<Window type="TaharezLook/StaticImage" name="Options.TabAbout.TabHistory.ImageValeOfSorrow" >
+										<Property name="Area" value="{{0.5,-143},{0,0},{0.5,143},{0,1532}}" />
+										<Property name="FrameEnabled" value="False" />
+										<Property name="BackgroundEnabled" value="False" />
+										<Property name="MouseInputPropagationEnabled" value="True" />
+									</Window>
+								</Window>
+								
+								<!-- TabTheInternetQuestBegins -->
+								<Window type="TaharezLook/ScrollablePane" name="Options.TabAbout.TabHistory.TabTheInternetQuestBegins" >
+									<Property name="Text" value="The Internet Quest Begins (1996)" />
+									<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+									
+									<!-- ImageTheInternetQuestBegins -->
+									<Window type="TaharezLook/StaticImage" name="Options.TabAbout.TabHistory.ImageTheInternetQuestBegins" >
+										<Property name="Area" value="{{0.5,-143},{0,0},{0.5,143},{0,2304}}" />
+										<Property name="FrameEnabled" value="False" />
+										<Property name="BackgroundEnabled" value="False" />
+										<Property name="MouseInputPropagationEnabled" value="True" />
+									</Window>
+								</Window>
+							</Window>
+						</Window>											
+					</Window>
 				</Window>
 			</Window>
 		</Window>

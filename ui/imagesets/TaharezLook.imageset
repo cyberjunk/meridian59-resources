@@ -292,4 +292,8 @@
 	<Image height="10" name="RedCloseButton"			width="9" xPos="140" yPos="230" />
 	<Image height="10" name="RedCloseButtonHover"		width="9" xPos="150" yPos="230" />
 	<Image height="10" name="RedCloseButtonDisabled"	width="9" xPos="160" yPos="230" />
+	<Image height="51" name="LogoGPL3"		width="127" xPos="1" yPos="384" />
+	<Image height="50" name="LogoOgre3D"	width="125" xPos="1" yPos="433" />
+	<Image height="90" name="LogoCEGUI"		width="199" xPos="1" yPos="484" />
+	<Image height="55" name="LogoIrrKlang"	width="190" xPos="1" yPos="576" />
 </Imageset>
