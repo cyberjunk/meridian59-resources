@@ -6,6 +6,7 @@ struct VOut1
 {
 	float4 p	: POSITION;
 	float2 uv	: TEXCOORD0;
+	float3 normal : TEXCOORD1;
 };
 
 struct VOut2
@@ -38,6 +39,7 @@ struct VOut4
 VOut1 ambient_vs(
 	float4 p : POSITION,
 	float2 uv : TEXCOORD0,
+	float3 normal : NORMAL,
 	uniform float4x4 wvpMat,
 	uniform float4x4 texMat)
 {
@@ -45,7 +47,8 @@ VOut1 ambient_vs(
 
 	OUT.p  = mul(wvpMat, p);
 	OUT.uv = mul(texMat, float4(uv, 0, 1)).xy;
-
+	OUT.normal = normal;
+	
 	return OUT;
 }
 
@@ -118,14 +121,41 @@ VOut4 water_vs(
 float4 ambient_ps(
 	VOut1 vsout,
 	uniform float3 ambient,
+	uniform float3 lightCol,
+	uniform float4 lightDir,
 	uniform float4 colormodifier,
 	uniform sampler2D diffusetex : TEXUNIT0) : COLOR0
 {
-	return tex2D(diffusetex, vsout.uv) * float4(
-		ambient[0] * colormodifier[0],
-		ambient[1] * colormodifier[1],
-		ambient[2] * colormodifier[2],		
-		colormodifier[3]);
+	// pixel from texture
+	float4 texcol = tex2D(diffusetex, vsout.uv);
+	
+	// flip direction
+	lightDir = -lightDir;
+
+	// represents how much this pixel should be affected by directional light
+	float angle = max(dot(normalize(lightDir.xyz), normalize(vsout.normal)), 0);		
+
+	// directional light contribution
+	float3 dir = float3(
+		angle * lightCol.r * texcol.r,
+		angle * lightCol.g * texcol.g,
+		angle * lightCol.b * texcol.b);
+		
+	// ambient light contribution
+	float3 ambi = float3(
+		ambient.r * texcol.r,
+		ambient.g * texcol.g,
+		ambient.b * texcol.b);
+	
+	// combine ambientlight and directionallight weightened
+	float3 sum = (0.3 * dir) + (0.7 * ambi);
+	
+	// output pixel
+	return float4(
+		sum.r * colormodifier.r,
+		sum.g * colormodifier.g,
+		sum.b * colormodifier.b,		
+		texcol.a * colormodifier.a);
 }
 
 float4 diffuse_ps(

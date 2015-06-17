@@ -67,6 +67,8 @@ fragment_program ambient_ps hlsl
     default_params
     {
         param_named_auto ambient ambient_light_colour
+		param_named_auto lightDir light_direction 0
+		param_named_auto lightCol light_diffuse_colour 0
 		param_named colormodifier float4 1 1 1 1
     }
 }
@@ -85,7 +87,6 @@ fragment_program diffuse_ps hlsl
 		param_named colormodifier float4 1 1 1 1		
     }
 }
-
 
 fragment_program invisible_ps hlsl
 {
@@ -135,13 +136,13 @@ material base_material
 {
     technique
     {
+		// 1. pass: ambient + directional light
         pass
         {
-			// 1. stage: ambientlight
 			alpha_rejection greater_equal 64
 			alpha_to_coverage on
             illumination_stage ambient
- 
+
             vertex_program_ref ambient_vs
             {
             }
@@ -158,15 +159,14 @@ material base_material
             }
         }
  
+		// 2. pass: per point light
         pass
         {
-			// 2. stage: per light
 			alpha_rejection greater_equal 64
 			alpha_to_coverage on
             illumination_stage per_light
-			
-			iteration once_per_light point         
-			max_lights 48			
+			iteration once_per_light point
+			max_lights 48
 			scene_blend add
             
             vertex_program_ref diffuse_vs
@@ -184,6 +184,7 @@ material base_material
             {                
             }
         }
+		
     }
 }
 
