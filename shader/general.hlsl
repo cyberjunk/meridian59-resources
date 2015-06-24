@@ -217,7 +217,7 @@ float4 water_ps(
    
 	reflVec.z = -reflVec.z;
    
-	float4 reflcol = tex2D(diffusetex, reflVec); 
+	float4 reflcol = tex2D(diffusetex, reflVec.xy); 
 
 	ambient = ambient + float3(0.01, 0.01, 0.01);
    
