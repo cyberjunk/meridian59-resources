@@ -3175,7 +3175,7 @@
 								<Property name="Area" value="{{0,10},{0,95},{1,-10},{0,145}}" />			
 								<Property name="NormalTextColour" value="FF242424" />
 								<Property name="HorzFormatting" value="WordWrapLeftAligned" />
-								<Property name="Text" value="Florian Neuner, Mario Moser, Mark Sturm, the OpenMeridian developers and all the kind folks out there providing free game resources." />						
+								<Property name="Text" value="Florian Neuner, Mario Moser, the OpenMeridian developers and all the kind folks out there providing free game resources." />						
 							</Window>
 
 							<!-- Disclaimer3Description -->
