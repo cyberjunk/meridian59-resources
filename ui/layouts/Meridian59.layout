@@ -709,6 +709,27 @@
 			</Window>
 		</Window>
 		
+		<!-- Quests -->
+		<Window type="TaharezLook/FrameWindow" name="Quests" >
+			<Property name="Text" value="Quests" />
+			<Property name="TitlebarEnabled" value="True" />
+			<Property name="TitlebarFont" value="DejaVuSerif-10-Bold" />
+			<Property name="Area" value="{{0,0},{0,24},{1,0},{1,0}}" />
+			<Property name="MaxSize" value="{{1,0},{1,0}}" />
+			<Property name="Size" value="{{0,256},{0,192}}" />
+			<Property name="Position" value="{{0.5,-128},{0.5,-128}}" />
+			<Property name="ClientAreaColour" value="00000000" />
+
+			<!-- List -->
+			<Window type="TaharezLook/ItemListbox" name="Quests.List" >
+				<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+				<Property name="MaxSize" value="{{1,0},{1,0}}" />
+				<Property name="Size" value="{{1,0},{1.0,0}}" />
+				<Property name="Position" value="{{0,0},{0,0}}" />
+				<Property name="BackgroundColours" value="tl:FF2f1d14 tr:FF2f1d14 bl:FF2f1d14 br:FF2f1d14" />
+			</Window>
+		</Window>
+		
 		<!-- Actions -->
 		<Window type="TaharezLook/FrameWindow" name="Actions" >
 			<Property name="Text" value="Actions" />
