@@ -776,9 +776,8 @@
 		
 		<!-- MainButtonsLeft -->
 		<Window type="TaharezLook/StaticImage" name="MainButtonsLeft" >
-			<Property name="Area" value="{{0,0},{0,24},{1,0},{1,0}}" />
-			<Property name="MaxSize" value="{{0,188},{0,46}}" />
-			<Property name="Size" value="{{0,182},{0,46}}" />
+			<Property name="MaxSize" value="{{0,208},{0,46}}" />
+			<Property name="Size" value="{{0,208},{0,46}}" />
 			<Property name="Position" value="{{0.5,-372},{1,-47}}" />
 			<Property name="FrameEnabled" value="False" />
 			<Property name="BackgroundEnabled" value="False" />
@@ -787,7 +786,7 @@
 			
 			<!-- Chat -->
 			<Window type="TaharezLook/StaticImage" name="MainButtonsLeft.Chat" >
-				<Property name="Area" value="{{0,18},{0,10},{0,44},{0,36}}" />
+				<Property name="Area" value="{{0,14},{0,9},{0,39},{0,35}}" />
 				<Property name="FrameEnabled" value="False" />
 				<Property name="BackgroundEnabled" value="False" />
 				<Property name="Image" value="TaharezLook/MainButtonChat" />
@@ -797,7 +796,7 @@
 			
 			<!-- Guild -->
 			<Window type="TaharezLook/StaticImage" name="MainButtonsLeft.Guild" >
-				<Property name="Area" value="{{0,47},{0,10},{0,73},{0,36}}" />
+				<Property name="Area" value="{{0,40},{0,9},{0,65},{0,35}}" />
 				<Property name="FrameEnabled" value="False" />
 				<Property name="BackgroundEnabled" value="False" />
 				<Property name="Image" value="TaharezLook/MainButtonGuild" />
@@ -807,7 +806,7 @@
 			
 			<!-- Mail -->
 			<Window type="TaharezLook/StaticImage" name="MainButtonsLeft.Mail" >
-				<Property name="Area" value="{{0,76},{0,10},{0,102},{0,36}}" />
+				<Property name="Area" value="{{0,66},{0,9},{0,91},{0,35}}" />
 				<Property name="FrameEnabled" value="False" />
 				<Property name="BackgroundEnabled" value="False" />
 				<Property name="Image" value="TaharezLook/MainButtonMail" />
@@ -817,7 +816,7 @@
 			
 			<!-- Map -->
 			<Window type="TaharezLook/StaticImage" name="MainButtonsLeft.Map" >
-				<Property name="Area" value="{{0,105},{0,10},{0,131},{0,36}}" />
+				<Property name="Area" value="{{0,92},{0,9},{0,117},{0,35}}" />
 				<Property name="FrameEnabled" value="False" />
 				<Property name="BackgroundEnabled" value="False" />
 				<Property name="Image" value="TaharezLook/MainButtonMap" />
@@ -827,7 +826,7 @@
 			
 			<!-- Options -->
 			<Window type="TaharezLook/StaticImage" name="MainButtonsLeft.Options" >
-				<Property name="Area" value="{{0,134},{0,10},{0,160},{0,36}}" />
+				<Property name="Area" value="{{0,118},{0,9},{0,143},{0,35}}" />
 				<Property name="FrameEnabled" value="False" />
 				<Property name="BackgroundEnabled" value="False" />
 				<Property name="Image" value="TaharezLook/MainButtonOptions" />
@@ -838,10 +837,9 @@
 		
 		<!-- MainButtonsRight -->
 		<Window type="TaharezLook/StaticImage" name="MainButtonsRight" >
-			<Property name="Area" value="{{0,0},{0,24},{1,0},{1,0}}" />
-			<Property name="MaxSize" value="{{0,188},{0,46}}" />
-			<Property name="Size" value="{{0,182},{0,46}}" />
-			<Property name="Position" value="{{0.5,190},{1,-47}}" />
+			<Property name="MaxSize" value="{{0,208},{0,46}}" />
+			<Property name="Size" value="{{0,208},{0,46}}" />
+			<Property name="Position" value="{{0.5,-372},{1,-47}}" />
 			<Property name="FrameEnabled" value="False" />
 			<Property name="BackgroundEnabled" value="False" />
 			<Property name="Image" value="TaharezLook/MainButtonsBackground" />
@@ -849,7 +847,7 @@
 			
 			<!-- Inventory -->
 			<Window type="TaharezLook/StaticImage" name="MainButtonsRight.Inventory" >
-				<Property name="Area" value="{{0,18},{0,10},{0,44},{0,36}}" />
+				<Property name="Area" value="{{0,14},{0,9},{0,39},{0,35}}" />
 				<Property name="FrameEnabled" value="False" />
 				<Property name="BackgroundEnabled" value="False" />
 				<Property name="Image" value="TaharezLook/MainButtonInventory" />
@@ -859,7 +857,7 @@
 			
 			<!-- Spells -->
 			<Window type="TaharezLook/StaticImage" name="MainButtonsRight.Spells" >
-				<Property name="Area" value="{{0,47},{0,10},{0,73},{0,36}}" />
+				<Property name="Area" value="{{0,40},{0,9},{0,64},{0,35}}" />
 				<Property name="FrameEnabled" value="False" />
 				<Property name="BackgroundEnabled" value="False" />
 				<Property name="Image" value="TaharezLook/MainButtonSpells" />
@@ -869,7 +867,7 @@
 			
 			<!-- Skills -->
 			<Window type="TaharezLook/StaticImage" name="MainButtonsRight.Skills" >
-				<Property name="Area" value="{{0,76},{0,10},{0,102},{0,36}}" />
+				<Property name="Area" value="{{0,66},{0,9},{0,91},{0,35}}" />
 				<Property name="FrameEnabled" value="False" />
 				<Property name="BackgroundEnabled" value="False" />
 				<Property name="Image" value="TaharezLook/MainButtonSkills" />
@@ -879,7 +877,7 @@
 			
 			<!-- Actions -->
 			<Window type="TaharezLook/StaticImage" name="MainButtonsRight.Actions" >
-				<Property name="Area" value="{{0,105},{0,10},{0,131},{0,36}}" />
+				<Property name="Area" value="{{0,92},{0,9},{0,117},{0,35}}" />
 				<Property name="FrameEnabled" value="False" />
 				<Property name="BackgroundEnabled" value="False" />
 				<Property name="Image" value="TaharezLook/MainButtonActions" />
@@ -889,11 +887,21 @@
 			
 			<!-- Attributes -->
 			<Window type="TaharezLook/StaticImage" name="MainButtonsRight.Attributes" >
-				<Property name="Area" value="{{0,134},{0,10},{0,160},{0,36}}" />
+				<Property name="Area" value="{{0,118},{0,9},{0,143},{0,35}}" />
 				<Property name="FrameEnabled" value="False" />
 				<Property name="BackgroundEnabled" value="False" />
 				<Property name="Image" value="TaharezLook/MainButtonAttributes" />
 				<Property name="TooltipText" value="Attributes" />
+				<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
+			</Window>
+			
+			<!-- Quests -->
+			<Window type="TaharezLook/StaticImage" name="MainButtonsRight.Quests" >
+				<Property name="Area" value="{{0,144},{0,9},{0,169},{0,35}}" />
+				<Property name="FrameEnabled" value="False" />
+				<Property name="BackgroundEnabled" value="False" />
+				<Property name="Image" value="TaharezLook/MainButtonQuests" />
+				<Property name="TooltipText" value="Quests" />
 				<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
 			</Window>
 		</Window>

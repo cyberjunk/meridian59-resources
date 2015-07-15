@@ -255,7 +255,7 @@
 	<Image height="22" name="StatusBarBackground" width="40" xPos="5" yPos="230" />
 	<Image height="130" name="AvatarBackground" width="256" xPos="256" yPos="2" />
 	<Image height="92" name="TargetBackground" width="256" xPos="256" yPos="2" />
-	<Image height="46" name="MainButtonsBackground" width="182" xPos="256" yPos="148" />
+	<Image height="46" name="MainButtonsBackground" width="205" xPos="256" yPos="148" />
 	<Image height="128" name="ActionButtonsBackground" width="385" xPos="520" yPos="2" />
 	<Image height="24" name="ActionActivate" 			width="24" xPos="5" yPos="255" />
 	<Image height="24" name="ActionActivateDisabled" 	width="24" xPos="5" yPos="280" />
@@ -289,6 +289,7 @@
 	<Image height="26" name="MainButtonSkills"			width="26" xPos="194" yPos="330" />
 	<Image height="26" name="MainButtonSpells"			width="26" xPos="221" yPos="330" />
 	<Image height="26" name="MainButtonOptions"			width="26" xPos="5" yPos="357" />
+	<Image height="26" name="MainButtonQuests"			width="26" xPos="32" yPos="357" />
 	<Image height="10" name="RedCloseButton"			width="9" xPos="140" yPos="230" />
 	<Image height="10" name="RedCloseButtonHover"		width="9" xPos="150" yPos="230" />
 	<Image height="10" name="RedCloseButtonDisabled"	width="9" xPos="160" yPos="230" />
