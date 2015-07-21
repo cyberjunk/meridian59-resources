@@ -1650,7 +1650,7 @@
 					</Window>
 					<Window type="TaharezLook/Combobox" name="AvatarCreateWizard.Profiles" >
 						<Property name="ReadOnly" value="True" />
-						<Property name="Area" value="{{0.25,105},{0.1,10},{0.75,0},{0.1,35}}" />				
+						<Property name="Area" value="{{0.25,105},{0.1,10},{0.75,0},{0.1,110}}" />				
 					</Window>
 					
 					<!-- Might -->
