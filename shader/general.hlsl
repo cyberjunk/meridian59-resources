@@ -148,7 +148,7 @@ float4 ambient_ps(
 		ambient.b * texcol.b);
 	
 	// combine ambientlight and directionallight weightened
-	float3 sum = (0.25 * dir) + (0.75 * ambi);
+	float3 sum = (0.2 * dir) + (0.8 * ambi);
 	
 	// output pixel
 	return float4(
