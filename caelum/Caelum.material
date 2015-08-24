@@ -349,7 +349,6 @@ fragment_program CaelumSkyDomeFP hlsl
 	{
 		// Caelum sky properties
 		param_named offset float 0
-		param_named hazeColour float4 0 0 0 0
 	}
 }
 

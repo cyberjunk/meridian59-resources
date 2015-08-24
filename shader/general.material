@@ -39,7 +39,6 @@ vertex_program invisible_vs hlsl
     {  
 		param_named_auto wvpMat worldviewproj_matrix
 		param_named_auto texMat texture_matrix 0
-		param_named_auto eyePos camera_position_object_space
 		param_named_auto timeVal time 0.05
     }
 }
