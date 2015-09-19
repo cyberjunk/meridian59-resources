@@ -1968,8 +1968,8 @@
 			</Window>
 			
 			<!-- UI -->
-			<Window type="TaharezLook/Button" name="Options.UI" >
-				<Property name="Text" value="UI" />							
+			<Window type="TaharezLook/Button" name="Options.GamePlay" >
+				<Property name="Text" value="Gameplay" />							
 				<Property name="Area" value="{{0,15},{0,255},{0,115},{0,280}}" />
 				<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
 			</Window>
@@ -3097,10 +3097,49 @@
 					</Window>						
 				</Window>
 				
-				<!-- TabUI -->
-				<Window type="DefaultWindow" name="Options.TabUI" >
-					<Property name="Text" value="UI" />
-					<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />									
+				<!-- TabGamePlay -->
+				<Window type="DefaultWindow" name="Options.TabGamePlay" >
+					<Property name="Text" value="GamePlay" />
+					<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />			
+
+					<!-- Server saved settings -->
+					<Window type="TaharezLook/Checkbox" name="Options.TabGamePlay.Safety" >
+						<Property name="Text" value="Safety" />
+						<Property name="Area" value="{{0.5,-150},{0,100},{0.5,0},{0,120}}" />
+						<Property name="TooltipText" value="Prevents you from attacking innocents." />
+					</Window>
+					<Window type="TaharezLook/Checkbox" name="Options.TabGamePlay.Grouping" >
+						<Property name="Text" value="Grouping" />
+						<Property name="Area" value="{{0.5,-150},{0,125},{0.5,0},{0,145}}" />
+						<Property name="TooltipText" value="You will form groups with other players in your room." />
+					</Window>
+					<Window type="TaharezLook/Checkbox" name="Options.TabGamePlay.SpellPower" >
+						<Property name="Text" value="Spell Power" />
+						<Property name="Area" value="{{0.5,-150},{0,150},{0.5,0},{0,170}}" />
+						<Property name="TooltipText" value="Will display your spellpower when you cast." />					
+					</Window>
+					<Window type="TaharezLook/Checkbox" name="Options.TabGamePlay.ReagentBag" >
+						<Property name="Text" value="Reagent Bag" />
+						<Property name="Area" value="{{0.5,-150},{0,175},{0.5,0},{0,195}}" />
+						<Property name="TooltipText" value="Reagents will automatically be put into your reagent bag." />
+					</Window>
+					
+					<Window type="TaharezLook/Checkbox" name="Options.TabGamePlay.TempSafe" >
+						<Property name="Text" value="Temporary Angel" />
+						<Property name="Area" value="{{0.5,0},{0,100},{0.5,150},{0,120}}" />
+						<Property name="TooltipText" value="Grants you a temporary guardian angel in case you get murdered." />
+					</Window>						
+					<Window type="TaharezLook/Checkbox" name="Options.TabGamePlay.AutoLoot" >
+						<Property name="Text" value="Auto Loot" />
+						<Property name="Area" value="{{0.5,0},{0,125},{0.5,150},{0,145}}" />
+						<Property name="TooltipText" value="You will automatically loot stackable items." />					
+					</Window>
+					<Window type="TaharezLook/Checkbox" name="Options.TabGamePlay.AutoCombine" >
+						<Property name="Text" value="Auto Combine" />
+						<Property name="Area" value="{{0.5,0},{0,150},{0.5,150},{0,170}}" />
+						<Property name="TooltipText" value="You will automatically combine some items." />					
+					</Window>
+				
 				</Window>
 				
 				<!-- TabAliases -->
@@ -3169,7 +3208,7 @@
 							<Window type="TaharezLook/Label" name="Options.TabAbout.TabGeneral.Disclaimer1Desc" >
 								<Property name="Area" value="{{0,10},{0,10},{0,150},{0,30}}" />			
 								<Property name="NormalTextColour" value="FF242424" />
-								<Property name="Text" value="OgreClient 1.0.3.9" />
+								<Property name="Text" value="OgreClient 1.0.4.0" />
 								<Property name="Font" value="DejaVuSerif-10-Bold" />
 								<Property name="HorzFormatting" value="WordWrapLeftAligned" />							
 							</Window>							
