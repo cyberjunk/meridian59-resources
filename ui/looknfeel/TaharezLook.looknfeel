@@ -291,7 +291,7 @@
 	    <PropertyDefinition name="NormalTextColour" initialValue="FFFFFFFF" redrawOnWrite="true" type="ColourRect"/>
         <PropertyDefinition name="HoverTextColour" initialValue="FFFFFFFF" redrawOnWrite="true" type="ColourRect"/>
         <PropertyDefinition name="PushedTextColour" initialValue="FFFFFFFF" redrawOnWrite="true" type="ColourRect"/>
-        <PropertyDefinition name="DisabledTextColour" initialValue="FF7F7F7F" redrawOnWrite="true" type="ColourRect"/>
+        <PropertyDefinition name="DisabledTextColour" initialValue="FFFFFFFF" redrawOnWrite="true" type="ColourRect"/>
         <Property name="Size" value="{{0, 128}, {0, 32}}" />
 		<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
         <ImagerySection name="label">
