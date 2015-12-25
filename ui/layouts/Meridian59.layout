@@ -1057,6 +1057,13 @@
 				<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
 			</Window>
 			
+			<!-- Delete -->
+			<Window type="TaharezLook/Button" name="NewsGroup.Delete" >
+				<Property name="Text" value="Delete" />
+				<Property name="Area" value="{{0,405},{0.5,-5},{0,500},{0.5,15}}" />
+				<Property name="MouseCursorImage" value="TaharezLook/MouseHand" />
+			</Window>
+			
 			<!-- Text -->
 			<Window type="TaharezLook/MultiLineEditbox" name="NewsGroup.Text" >				
 				<Property name="Area" value="{{0,5},{0.5,20},{1,-5},{1,-5}}" />
