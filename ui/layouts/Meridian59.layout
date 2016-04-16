@@ -35,6 +35,29 @@
 			</Window>
 		</Window>
 		
+		<!-- DownloadBar -->
+		<Window type="TaharezLook/StaticImage" name="DownloadBar" >
+			<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+			<Property name="Size" value="{{0,316},{0,128}}" />
+			<Property name="Position" value="{{0.5,-158},{0.75,-48}}" />
+			<Property name="FrameEnabled" value="False" />
+			<Property name="BackgroundEnabled" value="False" />
+				
+			<!-- Title -->
+			<Window type="TaharezLook/Label" name="DownloadBar.Title" >
+				<Property name="Text" value="Updating" />
+				<Property name="Area" value="{{0,0},{0,0},{1,0},{0,32}}" />
+				<Property name="Font" value="EBGaramondSC-26" />
+				<Property name="NormalTextColour" value="FFFF0000" />			
+			</Window>
+			
+			<!-- ContentBar -->
+			<Window type="TaharezLook/VUMeter" name="DownloadBar.Content" >
+				<Property name="Area" value="{{0,0},{0,40},{0,316},{0,32}}" />
+				<Property name="Size" value="{{0,316},{0,32}}" />
+			</Window>
+		</Window>
+		
 		<!-- Welcome -->
 		<Window type="TaharezLook/FrameWindow" name="Welcome" >
 			<Property name="Text" value="Welcome" />
