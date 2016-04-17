@@ -160,21 +160,35 @@ float4 ambient_ps(
 
 float4 diffuse_ps(
 	VOut2 vsout,
-	uniform float3 lightCol,
-	uniform float4 lightPos,
-	uniform float4 lightAtt,
+	uniform float3 lightCol0,
+	uniform float4 lightPos0,
+	uniform float4 lightAtt0,
+	uniform float3 lightCol1,
+	uniform float4 lightPos1,
+	uniform float4 lightAtt1,
 	uniform float4 colormodifier,
 	uniform sampler2D diffusetex : TEXUNIT0) : COLOR0
 {  
-	float lightDist       = length(lightPos.xyz - vsout.wp.xyz) / lightAtt.r;
-	float lightScale      = 1.0 - (lightDist * lightDist);
-	float4 diffuseTex     = tex2D(diffusetex, vsout.uv);
-	float3 diffuseContrib = lightCol * diffuseTex.rgb * lightScale;
+	// base pixel from texture
+	float4 diffuseTex = tex2D(diffusetex, vsout.uv);
+	
+	// 1. light
+	float lightDist0  = length(lightPos0.xyz - vsout.wp.xyz) / lightAtt0.r;
+	float lightScale0 = 1.0 - (lightDist0 * lightDist0);
+	float3 light0     = max(float3(0, 0, 0), lightCol0 * lightScale0);
 
+	// 2. light
+	float lightDist1  = length(lightPos1.xyz - vsout.wp.xyz) / lightAtt1.r;
+	float lightScale1 = 1.0 - (lightDist1 * lightDist1);
+	float3 light1     = max(float3(0, 0, 0), lightCol1 * lightScale1);
+
+	// combined
+	float3 light = light0 + light1;
+	
 	return float4(
-		diffuseContrib[0] * colormodifier[0],
-		diffuseContrib[1] * colormodifier[1],
-		diffuseContrib[2] * colormodifier[2],
+		diffuseTex.r * colormodifier[0] * light[0],
+		diffuseTex.g * colormodifier[1] * light[1],
+		diffuseTex.b * colormodifier[2] * light[2],
 		diffuseTex.a * colormodifier[3]);
 }
 
